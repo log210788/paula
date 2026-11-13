@@ -1,0 +1,2744 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Paula's Peaceful English Sanctuary | Trial Lesson Notes</title>
+
+  <!-- Google Fonts: Cormorant Garamond (Literary Serif), Plus Jakarta Sans (Soft Modern UI), JetBrains Mono (Timestamps & IPA) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            parchment: {
+              50: '#fbf9f5',
+              100: '#f6f1e7',
+              200: '#ede3d1',
+              300: '#dfd0b5',
+              400: '#cbb38e',
+              500: '#b6966b',
+            },
+            autumn: {
+              50: '#fcf6f0',
+              100: '#f7e9db',
+              200: '#eed0b5',
+              300: '#e2b086',
+              400: '#d38c57',
+              500: '#be6f38',
+              600: '#a3582b',
+              700: '#854524',
+              800: '#6c3921',
+            },
+            sage: {
+              50: '#f4f7f5',
+              100: '#e4ece7',
+              200: '#cadad1',
+              300: '#a5bfb1',
+              400: '#7b9f8d',
+              500: '#5b826f',
+              600: '#476858',
+              700: '#3a5448',
+              800: '#30443b',
+            },
+            slatewarm: {
+              700: '#3d4441',
+              800: '#2b312e',
+              900: '#1e2321',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP for Gentle Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- Popper & Tippy.js for Interactive Vocabulary Explanations -->
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css" />
+
+  <!-- Canvas Confetti for Gentle Practice Encouragement -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    :root {
+      --bg-base: #f9f6f0;
+      --bg-card: rgba(255, 253, 249, 0.92);
+      --bg-subcard: rgba(255, 255, 255, 0.95);
+      --border-soft: #e6decb;
+      --border-accent: #d9c8b0;
+      --text-main: #2b312e;
+      --text-muted: #5c6660;
+      --grad-1: rgba(238, 208, 181, 0.42);
+      --grad-2: rgba(202, 218, 209, 0.48);
+      --grad-3: rgba(246, 241, 231, 0.70);
+    }
+
+    body[data-theme="winchester"] {
+      --bg-base: #f3f6f5;
+      --bg-card: rgba(252, 254, 253, 0.91);
+      --bg-subcard: rgba(255, 255, 255, 0.95);
+      --border-soft: #d7e2dc;
+      --border-accent: #b8ccc2;
+      --text-main: #26312d;
+      --text-muted: #52635c;
+      --grad-1: rgba(202, 218, 209, 0.50);
+      --grad-2: rgba(219, 228, 238, 0.48);
+      --grad-3: rgba(244, 240, 230, 0.55);
+    }
+
+    body[data-theme="twilight"] {
+      --bg-base: #f5efe6;
+      --bg-card: rgba(253, 249, 242, 0.92);
+      --bg-subcard: rgba(255, 252, 247, 0.96);
+      --border-soft: #e2d2be;
+      --border-accent: #cfaea0;
+      --text-main: #2d2622;
+      --text-muted: #665850;
+      --grad-1: rgba(226, 176, 134, 0.36);
+      --grad-2: rgba(214, 196, 176, 0.42);
+      --grad-3: rgba(235, 220, 202, 0.55);
+    }
+
+    body {
+      background-color: var(--bg-base);
+      background-image:
+        radial-gradient(at 8% 5%, var(--grad-1) 0px, transparent 52%),
+        radial-gradient(at 92% 18%, var(--grad-2) 0px, transparent 52%),
+        radial-gradient(at 50% 88%, var(--grad-3) 0px, transparent 58%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      transition: background-color 0.5s ease, color 0.4s ease;
+      overflow-x: hidden;
+    }
+
+    .sanctuary-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 12px 36px -10px rgba(91, 130, 111, 0.08), 0 4px 14px -3px rgba(43, 49, 46, 0.04);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sanctuary-subcard {
+      background: var(--bg-subcard);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 4px 14px -4px rgba(43, 49, 46, 0.04);
+      transition: all 0.25s ease;
+    }
+
+    /* Inline Vocabulary Highlight in Transcript */
+    .vocab-mark {
+      display: inline-block;
+      background: linear-gradient(120deg, rgba(226, 176, 134, 0.28) 0%, rgba(165, 191, 177, 0.30) 100%);
+      border-bottom: 2px dashed #a3582b;
+      color: #5b3216;
+      font-weight: 600;
+      padding: 0px 5px;
+      margin: 0 1px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .vocab-mark:hover, .vocab-mark.active-vocab {
+      background: linear-gradient(120deg, rgba(190, 111, 56, 0.25) 0%, rgba(91, 130, 111, 0.32) 100%);
+      border-bottom-style: solid;
+      border-bottom-color: #476858;
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(163, 88, 43, 0.14);
+    }
+
+    body.hide-vocab-highlights .vocab-mark {
+      background: transparent !important;
+      border-bottom: none !important;
+      color: inherit !important;
+      font-weight: inherit !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+    }
+
+    /* Note-taker fix badge */
+    .asr-fix-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.72rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f4f7f5;
+      color: #476858;
+      border: 1px solid #cadad1;
+      padding: 1px 7px;
+      border-radius: 999px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    body.hide-asr-fixes .asr-fix-pill {
+      display: none !important;
+    }
+
+    /* Custom Tippy Tooltip Theme: Peaceful Autumn */
+    .tippy-box[data-theme~='autumn-sanctuary'] {
+      background-color: #fffdf9;
+      color: #2b312e;
+      border: 1px solid #dfd0b5;
+      border-radius: 1rem;
+      box-shadow: 0 20px 38px -8px rgba(61, 68, 65, 0.16), 0 6px 16px -4px rgba(163, 88, 43, 0.08);
+      padding: 0.35rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .tippy-box[data-theme~='autumn-sanctuary'][data-placement^='top'] > .tippy-arrow::before {
+      border-top-color: #dfd0b5;
+    }
+    .tippy-box[data-theme~='autumn-sanctuary'][data-placement^='bottom'] > .tippy-arrow::before {
+      border-bottom-color: #dfd0b5;
+    }
+
+    /* Highlight pulse when jumping to a transcript line */
+    @keyframes gentleGlow {
+      0% { background-color: rgba(226, 176, 134, 0.45); transform: scale(1.005); }
+      50% { background-color: rgba(165, 191, 177, 0.38); }
+      100% { background-color: transparent; transform: scale(1); }
+    }
+    .turn-highlight-flash {
+      animation: gentleGlow 2.8s ease-out;
+    }
+
+    @media print {
+      .no-print, #autumn-breeze-canvas { display: none !important; }
+      body { background: #fff !important; }
+      .sanctuary-card, .sanctuary-subcard { box-shadow: none !important; border: 1px solid #ccc !important; }
+    }
+  </style>
+</head>
+<body data-theme="kensington" class="font-sans antialiased min-h-screen selection:bg-autumn-200 selection:text-slatewarm-900 relative">
+
+  <!-- CALMING AUTUMN BREEZE CANVAS OVERLAY -->
+  <canvas id="autumn-breeze-canvas" class="fixed inset-0 pointer-events-none z-20 opacity-80"></canvas>
+
+  <!-- STICKY PEACEFUL NAVIGATION & ATMOSPHERE BAR -->
+  <header class="sticky top-0 z-40 border-b border-[#e6decb]/90 bg-[#fbf9f5]/85 backdrop-blur-md no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div id="brand-initial" class="w-10 h-10 rounded-2xl bg-gradient-to-br from-sage-600 via-sage-500 to-autumn-500 flex items-center justify-center text-white font-serif text-xl font-bold shadow-sm">
+          P
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span id="brand-title" class="font-serif font-bold text-lg sm:text-xl tracking-tight text-slatewarm-900">Paula's Peaceful English Sanctuary</span>
+            <span id="brand-badge" class="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 text-[11px] font-medium rounded-full bg-sage-100 text-sage-800 border border-sage-200">
+              Trial Lesson • Conversation & Vocabulary
+            </span>
+          </div>
+          <p id="brand-subtitle" class="text-[11px] text-stone-500 hidden md:block">A calm, tidy space with your corrected lesson transcript, timestamps, and flagged vocabulary</p>
+        </div>
+      </div>
+
+      <!-- Calming Atmosphere Controls -->
+      <div class="flex flex-wrap items-center gap-2">
+        <div class="flex items-center gap-1.5 bg-white/90 border border-[#dfd0b5] rounded-xl px-2.5 py-1 shadow-sm">
+          <button id="soundscape-btn" onclick="toggleSoundscape()" class="flex items-center gap-1.5 text-xs font-semibold text-sage-700 hover:text-sage-900 transition px-1.5 py-0.5 rounded-lg" title="Toggle calming ambient audio">
+            <i data-lucide="wind" class="w-3.5 h-3.5 text-autumn-600"></i>
+            <span id="soundscape-label">Breeze Audio: Off</span>
+          </button>
+          <select id="soundscape-preset" onchange="changeSoundscapePreset(this.value)" class="text-[11px] bg-parchment-50 border border-parchment-200 rounded-lg px-1.5 py-0.5 text-stone-700 focus:outline-none">
+            <option value="breeze">🍂 Kensington Breeze</option>
+            <option value="rain">🌧️ Soft Autumn Rain</option>
+            <option value="study">🕯️ Warm Study Hearth</option>
+          </select>
+          <input id="soundscape-volume" type="range" min="0.05" max="0.6" step="0.05" value="0.22" oninput="updateSoundscapeVolume(this.value)" class="w-14 accent-sage-600 cursor-pointer hidden sm:block" />
+        </div>
+
+        <button id="leaves-toggle-btn" onclick="cycleLeafBreeze()" class="px-2.5 py-1.5 rounded-xl bg-white/90 hover:bg-autumn-50 border border-[#dfd0b5] text-xs font-medium text-stone-700 flex items-center gap-1.5 shadow-sm transition" title="Adjust falling leaves animation">
+          <i data-lucide="leaf" class="w-3.5 h-3.5 text-autumn-600"></i>
+          <span id="leaves-label" class="hidden sm:inline">Leaves: Gentle</span>
+        </button>
+
+        <div class="flex items-center gap-1 bg-white/90 border border-[#dfd0b5] rounded-xl px-2 py-1 shadow-sm text-xs">
+          <i data-lucide="volume-2" class="w-3.5 h-3.5 text-sage-600"></i>
+          <button onclick="setVoiceRate(0.85)" id="rate-slow" class="px-1.5 py-0.5 rounded-md text-[11px] text-stone-600 hover:bg-parchment-100 transition">0.85×</button>
+          <button onclick="setVoiceRate(1.0)" id="rate-normal" class="px-1.5 py-0.5 rounded-md text-[11px] bg-sage-600 text-white font-semibold transition">UK 1×</button>
+        </div>
+
+        <div class="hidden lg:flex items-center gap-1 bg-white/90 border border-[#dfd0b5] rounded-xl p-1 text-[11px] shadow-sm">
+          <button onclick="setThemeMood('kensington')" id="theme-kensington" class="px-2 py-0.5 rounded-lg bg-autumn-100 text-autumn-800 font-semibold transition">Bath Stone</button>
+          <button onclick="setThemeMood('winchester')" id="theme-winchester" class="px-2 py-0.5 rounded-lg text-stone-600 hover:text-stone-900 transition">Winchester Mist</button>
+          <button onclick="setThemeMood('twilight')" id="theme-twilight" class="px-2 py-0.5 rounded-lg text-stone-600 hover:text-stone-900 transition">Warm Study</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 space-y-7 relative z-10">
+
+    <!-- HERO BANNER -->
+    <section class="sanctuary-card rounded-3xl p-6 sm:p-9 relative overflow-hidden">
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-7 items-center">
+        <div class="lg:col-span-8 space-y-3.5">
+          <div id="hero-meta-pill" class="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full bg-sage-100/90 border border-sage-200 text-sage-800 text-xs font-medium"></div>
+          <h1 id="hero-heading" class="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-slatewarm-900 leading-[1.16]"></h1>
+          <p id="hero-intro" class="text-stone-600 text-sm sm:text-base leading-relaxed max-w-3xl"></p>
+        </div>
+
+        <div class="lg:col-span-4 grid grid-cols-2 gap-3">
+          <div onclick="switchTab('transcript')" class="cursor-pointer p-4 rounded-2xl bg-parchment-50/95 border border-parchment-300 hover:border-autumn-400 transition shadow-sm">
+            <div class="text-[11px] font-mono font-semibold uppercase text-autumn-700" id="stat-duration">05:58 – 59:31</div>
+            <div class="font-serif font-bold text-slatewarm-900 text-lg mt-0.5">Full Transcript</div>
+            <p class="text-[11px] text-stone-600 mt-0.5">54 mins tidied with inline vocab & timestamps</p>
+          </div>
+          <div onclick="switchTab('vocab')" class="cursor-pointer p-4 rounded-2xl bg-sage-50/95 border border-sage-200 hover:border-sage-400 transition shadow-sm">
+            <div class="text-[11px] font-mono font-semibold uppercase text-sage-700" id="stat-vocab-count">55 Flagged</div>
+            <div class="font-serif font-bold text-slatewarm-900 text-lg mt-0.5">Vocabulary & Idioms</div>
+            <p class="text-[11px] text-stone-600 mt-0.5">B2–C2 words, UK audio & Spanish notes</p>
+          </div>
+          <div onclick="switchTab('fixes')" class="cursor-pointer p-4 rounded-2xl bg-autumn-50/95 border border-autumn-200 hover:border-autumn-400 transition shadow-sm">
+            <div class="text-[11px] font-mono font-semibold uppercase text-autumn-700" id="stat-fixes-count">14 Fixes</div>
+            <div class="font-serif font-bold text-slatewarm-900 text-lg mt-0.5">Note-Taker Fixes</div>
+            <p class="text-[11px] text-stone-600 mt-0.5">Sorted spelling errors & gentle phrasing tips</p>
+          </div>
+          <div onclick="switchTab('places')" class="cursor-pointer p-4 rounded-2xl bg-parchment-50/95 border border-parchment-300 hover:border-sage-400 transition shadow-sm">
+            <div class="text-[11px] font-mono font-semibold uppercase text-sage-700">4 Topics</div>
+            <div class="font-serif font-bold text-slatewarm-900 text-lg mt-0.5">Places & Practice</div>
+            <p class="text-[11px] text-stone-600 mt-0.5">Balcony sanctuary, Sarah Paine & quiz</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5-TAB NAVIGATION BAR -->
+    <nav class="sanctuary-card rounded-2xl p-2 flex flex-wrap items-center justify-between gap-2 no-print">
+      <div class="flex flex-wrap items-center gap-1.5 w-full sm:w-auto">
+        <button onclick="switchTab('transcript')" id="tab-btn-transcript" class="tab-btn flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 bg-sage-700 text-white shadow-sm">
+          <i data-lucide="message-square-quote" class="w-4 h-4"></i>
+          <span>1. Lesson Transcript & Inline Vocab</span>
+        </button>
+        <button onclick="switchTab('vocab')" id="tab-btn-vocab" class="tab-btn flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100">
+          <i data-lucide="book-marked" class="w-4 h-4 text-autumn-600"></i>
+          <span>2. Vocabulary Dictionary</span>
+        </button>
+        <button onclick="switchTab('fixes')" id="tab-btn-fixes" class="tab-btn flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100">
+          <i data-lucide="sparkles" class="w-4 h-4 text-sage-600"></i>
+          <span>3. Note-Taker Fixes & Gentle Notes</span>
+        </button>
+        <button onclick="switchTab('places')" id="tab-btn-places" class="tab-btn flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100">
+          <i data-lucide="landmark" class="w-4 h-4 text-autumn-600"></i>
+          <span>4. Cultural Places & Prompts</span>
+        </button>
+        <button onclick="switchTab('practice')" id="tab-btn-practice" class="tab-btn flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100">
+          <i data-lucide="coffee" class="w-4 h-4 text-sage-600"></i>
+          <span>5. Peaceful Practice</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- TAB 1: FULL LESSON TRANSCRIPT -->
+    <section id="tab-panel-transcript" class="tab-panel space-y-6">
+      <div class="sanctuary-card rounded-3xl p-5 sm:p-6 space-y-4">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#e6decb] pb-4">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-sage-700 font-semibold">Interactive Conversation Transcript</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slatewarm-900 mt-0.5">
+              Our Conversation — With Vocabulary Explained Right Where We Said It
+            </h2>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 shrink-0">
+            <input id="transcript-search" type="text" oninput="filterTranscript()" placeholder="Search transcript or time..." class="px-3 py-1.5 rounded-xl bg-white border border-[#dfd0b5] text-xs text-stone-800 focus:outline-none w-48" />
+            <select id="speaker-filter" onchange="filterTranscript()" class="px-3 py-1.5 rounded-xl bg-white border border-[#dfd0b5] text-xs font-medium text-stone-700">
+              <option value="all">Both Speakers</option>
+              <option value="Paula" id="opt-student-speaker">Paula's Turns Only</option>
+              <option value="Louie">Louie Only</option>
+            </select>
+            <button onclick="toggleVocabHighlights()" id="btn-toggle-highlights" class="px-3 py-1.5 rounded-xl bg-autumn-100 text-autumn-800 border border-autumn-300 text-xs font-semibold">
+              <span>Vocab Highlights: On</span>
+            </button>
+            <button onclick="toggleAsrBadges()" id="btn-toggle-asr" class="px-3 py-1.5 rounded-xl bg-sage-100 text-sage-800 border border-sage-300 text-xs font-semibold">
+              <span>Note-Taker Fixes: Visible</span>
+            </button>
+          </div>
+        </div>
+        <div id="chapter-pills-bar" class="flex flex-wrap items-center gap-1.5 pt-1"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-8 space-y-4" id="transcript-stream-container"></div>
+        <aside class="lg:col-span-4 lg:sticky lg:top-20 space-y-4">
+          <div class="sanctuary-card rounded-3xl p-5 sm:p-6 border-t-4 border-t-autumn-500 space-y-4" id="vocab-inspector-card">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-[11px] font-mono uppercase tracking-widest text-autumn-700 font-semibold">Vocabulary Spotlight</span>
+              <span id="insp-time" class="px-2.5 py-0.5 rounded-full bg-parchment-100 border border-parchment-300 font-mono text-xs text-stone-700">🕒 26:34</span>
+            </div>
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <h3 id="insp-word" class="font-serif text-2xl sm:text-3xl font-bold text-slatewarm-900">amalgamation</h3>
+                <button id="insp-audio-btn" onclick="speakWord('amalgamation')" class="p-2.5 rounded-xl bg-sage-100 hover:bg-sage-200 text-sage-800 transition shrink-0" title="Listen in British English">
+                  <i data-lucide="volume-2" class="w-4 h-4"></i>
+                </button>
+              </div>
+              <div class="flex flex-wrap items-center gap-2 mt-1">
+                <span id="insp-ipa" class="text-xs font-mono text-stone-500">/əˌmæl.ɡəˈmeɪ.ʃən/</span>
+                <span id="insp-pos" class="px-2 py-0.5 text-[11px] rounded-md bg-parchment-100 text-stone-700 font-medium">noun</span>
+                <span id="insp-level" class="px-2 py-0.5 text-[11px] rounded-md bg-autumn-100 text-autumn-800 font-mono font-semibold">C1</span>
+              </div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-parchment-50 border border-parchment-200 space-y-1">
+              <div class="text-[11px] font-mono uppercase tracking-wider text-stone-500">Meaning & Nuance</div>
+              <p id="insp-def" class="text-xs sm:text-sm text-slatewarm-800 leading-relaxed">
+                A rich blend or harmonious combination of distinct elements into one unified whole.
+              </p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-sage-50/80 border border-sage-200 space-y-1">
+              <div class="text-[11px] font-mono uppercase tracking-wider text-sage-700">How It Was Used in Our Lesson</div>
+              <p id="insp-quote" class="text-xs italic text-stone-700 leading-relaxed">
+                Louie (26:20): "We say it's an amalgamation—an amalgamation of you, this space. The things that make up you."
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-1 text-xs border-t border-[#e6decb]">
+              <span class="text-stone-500" id="insp-l1-label">🇦🇷 Conexión en español:</span>
+              <span id="insp-l1" class="font-semibold text-sage-800">amalgama / combinación armoniosa</span>
+            </div>
+          </div>
+
+          <div class="sanctuary-card rounded-3xl p-5 space-y-3">
+            <div class="flex items-center gap-2 text-sage-800 font-serif font-bold text-lg">
+              <i data-lucide="heart-handshake" class="w-5 h-5 text-autumn-600"></i>
+              <span>A Warm Welcome for Paula</span>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              It was such a pleasure to meet you today! Your energy, intellectual curiosity, and thoughtful blend of analytical legal logic with deep spiritual and human empathy make our conversations wonderful.
+            </p>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Every word we explored is saved here. Click any highlighted phrase in the transcript or explore the tabs above to review at your own peaceful pace.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TAB 2: VOCABULARY DICTIONARY -->
+    <section id="tab-panel-vocab" class="tab-panel hidden space-y-6">
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-5">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#e6decb] pb-5">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-autumn-700 font-semibold">Timestamped Lexicon • 55 Flagged Items</span>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slatewarm-900 mt-1">Vocabulary, Idioms & Key Expressions</h2>
+            <p class="text-xs sm:text-sm text-stone-600 mt-1">
+              Every word includes its exact timestamp in our trial lesson. Click <strong>"🕒 MM:SS ↗"</strong> to jump directly to where it was spoken in the transcript!
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <input id="vocab-search" type="text" oninput="renderVocabGrid()" placeholder="Search word, Spanish, time..." class="px-3 py-2 rounded-xl bg-white border border-[#dfd0b5] text-xs text-stone-800 w-52" />
+            <select id="vocab-level-filter" onchange="renderVocabGrid()" class="px-3 py-2 rounded-xl bg-white border border-[#dfd0b5] text-xs font-medium text-stone-700">
+              <option value="all">All Levels (B2–C2)</option>
+              <option value="C2">C2 Mastery</option>
+              <option value="C1">C1 Advanced</option>
+              <option value="B2">B2 Upper-Intermediate</option>
+            </select>
+          </div>
+        </div>
+        <div id="vocab-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-2"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: NOTE-TAKER FIXES & GENTLE NOTES -->
+    <section id="tab-panel-fixes" class="tab-panel hidden space-y-6">
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-6">
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slatewarm-900">Your Natural Strengths & Gentle Phrasing Polishes</h2>
+        
+        <div class="p-5 rounded-2xl bg-sage-50/90 border border-sage-200 space-y-3">
+          <div class="flex items-center gap-2">
+            <i data-lucide="sparkles" class="w-5 h-5 text-autumn-600"></i>
+            <span class="font-serif font-bold text-xl text-sage-800">Expressions You Used Naturally & Accurately Today</span>
+          </div>
+          <p class="text-xs text-stone-600">
+            Speaking spontaneously in a second language takes courage and mental agility. Here are 6 moments where you expressed yourself with wonderful warmth, precision, and authentic charm:
+          </p>
+          <div id="student-strengths-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs pt-1"></div>
+        </div>
+
+        <div class="space-y-3 pt-2">
+          <h3 class="font-serif font-bold text-xl text-slatewarm-900">Gentle Phrasing Polishes (In the Moment → Natural Polish)</h3>
+          <p class="text-xs text-stone-600">
+            Supportive, non-judgmental upgrades to help your spoken English sound even more effortless, sleek, and natural:
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="gentle-polishes-grid"></div>
+        </div>
+      </div>
+
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-5">
+        <div class="flex items-center gap-2">
+          <i data-lucide="cpu" class="w-5 h-5 text-autumn-600"></i>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slatewarm-900">How We Sorted Out the Automated Note-Taker's Spelling Mistakes</h2>
+        </div>
+        <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">
+          Automated speech-to-text algorithms often trip up on company names (hearing <em>"Boehringer Ingelheim"</em> as <em>"Boehringer Ingelham"</em>), project titles (hearing <em>"Minds Under Pressure"</em> as <em>"mental oppression"</em>!), foreign words (<em>"castañuelas"</em>), and homophones. Below is the complete record of what the AI note-taker misheard vs what you actually said:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="asr-fixes-grid"></div>
+      </div>
+    </section>
+
+    <!-- TAB 4: CULTURAL PLACES & PROMPTS -->
+    <section id="tab-panel-places" class="tab-panel hidden space-y-6">
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-6">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-autumn-700 font-semibold">Conversational Deep-Dives</span>
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-slatewarm-900 mt-1">Key Topics & Visual Prompts from Our Trial Lesson</h2>
+          <p class="text-xs sm:text-sm text-stone-600 mt-1">
+            Editorial reflections on your background, upcoming Friday corporate presentation, and personal creative sanctuary.
+          </p>
+        </div>
+        <div id="cultural-places-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- TAB 5: PEACEFUL PRACTICE -->
+    <section id="tab-panel-practice" class="tab-panel hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-6 sanctuary-card rounded-3xl p-6 sm:p-8 space-y-5 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-serif text-2xl font-bold text-slatewarm-900">Gentle Vocabulary Flashcards</h3>
+              <span id="fc-counter" class="text-xs font-mono text-stone-500">Card 1 of 12</span>
+            </div>
+            <p class="text-xs text-stone-600 mt-1">Click the card to reveal the definition, lesson quote, and Spanish connection.</p>
+          </div>
+
+          <div onclick="flipFlashcard()" class="cursor-pointer sanctuary-subcard rounded-2xl p-7 min-h-[250px] flex flex-col items-center justify-center text-center space-y-3 border-2 border-[#dfd0b5] hover:border-autumn-400 transition select-none my-2 shadow-sm">
+            <span id="fc-badge" class="px-2.5 py-0.5 rounded-full bg-autumn-100 text-autumn-800 text-[11px] font-mono"></span>
+            <h4 id="fc-front-title" class="font-serif text-3xl font-bold text-slatewarm-900"></h4>
+            <p id="fc-sub" class="text-xs sm:text-sm text-stone-600 max-w-md leading-relaxed"></p>
+            <div id="fc-back-details" class="hidden space-y-2 pt-3 border-t border-parchment-200 w-full text-left">
+              <p id="fc-quote" class="text-xs italic text-sage-800 bg-sage-50/70 p-2.5 rounded-xl border border-sage-200"></p>
+              <div class="flex items-center justify-between text-xs pt-1">
+                <span class="text-stone-500">🇦🇷 Conexión en español:</span>
+                <span id="fc-l1" class="font-semibold text-autumn-800"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between gap-2 pt-2">
+            <button onclick="prevFlashcard()" class="px-4 py-2 rounded-xl bg-parchment-100 text-xs font-semibold text-stone-700 hover:bg-parchment-200 transition">← Previous</button>
+            <button onclick="speakCurrentFlashcard()" class="px-4 py-2 rounded-xl bg-sage-100 hover:bg-sage-200 text-xs font-semibold text-sage-800 transition">🔊 Listen (UK)</button>
+            <button onclick="nextFlashcard()" class="px-4 py-2 rounded-xl bg-sage-700 hover:bg-sage-800 text-xs font-semibold text-white transition">Next →</button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 sanctuary-card rounded-3xl p-6 sm:p-8 space-y-5">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="font-serif text-2xl font-bold text-slatewarm-900">Match the Word to Our Conversation</h3>
+              <p class="text-xs text-stone-600 mt-0.5">Test your recall of key words and idioms spoken during our lesson.</p>
+            </div>
+            <span id="quiz-score-badge" class="px-3 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-mono font-semibold">0 / 6 Completed</span>
+          </div>
+          <div id="quiz-container" class="space-y-4 max-h-[440px] overflow-y-auto pr-1"></div>
+        </div>
+      </div>
+
+      <!-- Reflection Prompts for Next Lesson -->
+      <div class="sanctuary-card rounded-3xl p-6 sm:p-8 space-y-4">
+        <div class="flex items-center gap-2 text-autumn-700">
+          <i data-lucide="compass" class="w-5 h-5"></i>
+          <span class="text-xs font-mono uppercase tracking-widest font-semibold">Looking Ahead</span>
+        </div>
+        <h3 class="font-serif text-2xl font-bold text-slatewarm-900">3 Thoughtful Reflection Prompts for Next Lesson</h3>
+        <p class="text-xs sm:text-sm text-stone-600">
+          We can use any of these prompts as a relaxed starting point for our next conversation on Wednesday:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          <div class="sanctuary-subcard rounded-2xl p-5 space-y-2 border-t-2 border-t-sage-500">
+            <span class="font-mono text-xs font-bold text-sage-700">Prompt 1 • Corporate Communication</span>
+            <h4 class="font-serif font-bold text-slatewarm-900 text-lg">The Friday 15-Minute Pitch</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              How did your 10-question presentation to your German and Polish colleagues go? Which Sarah Paine framing techniques helped you cut to the chase and highlight the human side of <em>Minds Under Pressure</em>?
+            </p>
+          </div>
+          <div class="sanctuary-subcard rounded-2xl p-5 space-y-2 border-t-2 border-t-autumn-500">
+            <span class="font-mono text-xs font-bold text-autumn-700">Prompt 2 • Empathy & Investigation</span>
+            <h4 class="font-serif font-bold text-slatewarm-900 text-lg">Balancing Law with Humanity</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              In your HR workplace investigations at Boehringer Ingelheim, how do you manage the delicate balance between objective legal compliance and maintaining genuine empathy for people under acute pressure?
+            </p>
+          </div>
+          <div class="sanctuary-subcard rounded-2xl p-5 space-y-2 border-t-2 border-t-sage-600">
+            <span class="font-mono text-xs font-bold text-sage-800">Prompt 3 • Creative Sanctuaries</span>
+            <h4 class="font-serif font-bold text-slatewarm-900 text-lg">The Balcony Sanctuary & Rhythm</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              How does switching between flamenco castanets, active imagination, and meditation in your enclosed balcony sunroom help you restore your biological rhythm and energy after long corporate days?
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+
+    // =========================================================================
+    // LESSON CONFIGURATION & VOCABULARY DICTIONARY (55 ITEMS)
+    // =========================================================================
+    const LESSON_CONFIG = {
+      studentName: "Paula",
+      lessonNumber: "Trial Lesson",
+      lessonDate: "October 21, 2026",
+      lessonSubtitle: "Trial Lesson • Conversation, Resilience & Professional Communication",
+      l1FlagAndLabel: "🇦🇷 Conexión en español:",
+      heroHeadingHtml: `Welcome Paula — Your <span class="text-autumn-700 italic font-semibold">Peaceful Sanctuary</span> for English Reflection`,
+      heroIntroText: `Here is your tidy, corrected transcript from our trial conversation (05:58 – 59:31). All 14 note-taker mishearings have been forensically sorted out, with 55 high-value B2–C2 vocabulary words flagged inline, Spanish connections, and British pronunciation.`,
+      defaultSpotlightKey: "amalgamation"
+    };
+
+    const VOCAB_DB = {
+      "amalgamation": {
+        word: "amalgamation",
+        ipa: "/əˌmæl.ɡəˈmeɪ.ʃən/",
+        pos: "noun",
+        level: "C1",
+        time: "26:34",
+        turnId: "turn-67",
+        cat: "lifestyle",
+        def: "A blend, mixture, or combination of diverse distinct elements into one unified, harmonious whole.",
+        quote: "Louie (26:20): \"We say it's an amalgamation—an amalgamation of you, this space. The things that make up you.\"",
+        l1: "amalgama / combinación armoniosa"
+      },
+      "archetype": {
+        word: "archetype",
+        ipa: "/ˈɑː.kɪ.taɪp/",
+        pos: "noun",
+        level: "C1",
+        time: "22:14",
+        turnId: "turn-49",
+        cat: "spirituality",
+        def: "A universal, recurring symbol, motif, or character pattern in art, mythology, and Jungian psychology that represents shared human experiences.",
+        quote: "Paula (21:59): \"...use the tarot to understand the archetype of the person... how you understand yourself.\"",
+        l1: "arquetipo"
+      },
+      "active-imagination": {
+        word: "active imagination",
+        ipa: "/ˌæk.tɪv ɪˌmædʒ.ɪˈneɪ.ʃən/",
+        pos: "noun phrase",
+        level: "C1",
+        time: "11:55",
+        turnId: "turn-23",
+        cat: "spirituality",
+        def: "A psychological meditation technique developed by Carl Jung, bridging the conscious mind with unconscious images and intuition.",
+        quote: "Paula (11:35): \"I like to meditate, to have this experience with active imagination... you can imagine a lot of things and transform your reality.\"",
+        l1: "imaginación activa (método analítico)"
+      },
+      "symbolism": {
+        word: "symbolism",
+        ipa: "/ˈsɪm.bəl.ɪ.zəm/",
+        pos: "noun",
+        level: "B2",
+        time: "10:21",
+        turnId: "turn-19",
+        cat: "spirituality",
+        def: "The practice of using symbols, signs, or artistic representations to express deeper emotional, philosophical, or psychological truths.",
+        quote: "Paula (10:21): \"I like art sessions... discovering the symbolism of things, like tarot and astrology.\"",
+        l1: "simbolismo"
+      },
+      "castanets": {
+        word: "castanets (castañuelas)",
+        ipa: "/ˌkæs.təˈnets/",
+        pos: "noun",
+        level: "B2",
+        time: "25:36",
+        turnId: "turn-64",
+        cat: "lifestyle",
+        def: "Small concave wooden or composite rhythm instruments clicked rhythmically with the fingers in traditional Spanish flamenco dancing.",
+        quote: "Paula (25:13): \"Of course with flamenco I go to class, but I do my castañuelas here... I have classes here!\"",
+        l1: "castañuelas"
+      },
+      "flamenco": {
+        word: "flamenco",
+        ipa: "/fləˈmeŋ.kəʊ/",
+        pos: "noun",
+        level: "B2",
+        time: "10:14",
+        turnId: "turn-17",
+        cat: "lifestyle",
+        def: "A highly expressive traditional Spanish art form characterized by percussive footwork, emotive song, guitar, and rhythmic clapping.",
+        quote: "Paula (10:14): \"Oh, so many things! I love dance, for example. I dance flamenco. So this is my hobby.\"",
+        l1: "flamenco"
+      },
+      "enclosed-balcony": {
+        word: "enclosed balcony (sunroom)",
+        ipa: "/ɪnˈkləʊzd ˈbæl.kə.ni/",
+        pos: "noun phrase",
+        level: "B2",
+        time: "25:13",
+        turnId: "turn-62",
+        cat: "lifestyle",
+        def: "A sheltered, glazed balcony or converted sunroom that provides a dedicated, quiet sanctuary within a home.",
+        quote: "Paula (24:54): \"It's like an enclosed balcony beside my bedroom... I work here, meditate here, and spend many hours here.\"",
+        l1: "balcón cerrado / terraza acristalada"
+      },
+      "pendant": {
+        word: "pendant",
+        ipa: "/ˈpen.dənt/",
+        pos: "noun",
+        level: "B2",
+        time: "30:55",
+        turnId: "turn-74",
+        cat: "lifestyle",
+        def: "A piece of jewellery, gemstone, or talisman suspended on a chain around the neck.",
+        quote: "Paula (30:48): \"It's a pendant... it's blue, but it depends on my energy. Sometimes pink, and when I have high energy, it turns blue.\"",
+        l1: "colgante / dije / péndulo"
+      },
+      "disaster-relief": {
+        word: "disaster relief",
+        ipa: "/dɪˈzɑː.stər rɪˌliːf/",
+        pos: "noun phrase",
+        level: "C1",
+        time: "32:04",
+        turnId: "turn-79",
+        cat: "humanitarian",
+        def: "Organized humanitarian assistance, rapid crisis logistics, and life-saving support provided to populations affected by natural disasters.",
+        quote: "Louie (32:04): \"You're doing disaster relief as well, is that correct?\"",
+        l1: "asistencia en desastres / ayuda humanitaria"
+      },
+      "landslide": {
+        word: "landslide",
+        ipa: "/ˈlænd.slaɪd/",
+        pos: "noun",
+        level: "B2",
+        time: "32:21",
+        turnId: "turn-80",
+        cat: "humanitarian",
+        def: "A sudden, rapid collapse and sliding downward of a large mass of earth, mud, or rock down a steep slope or hillside.",
+        quote: "Paula (32:21): \"In Brazil, not disasters directly, but I was preparing myself for disasters... you know, landslides happen a lot in Brazil.\"",
+        l1: "deslizamiento de tierra / alud"
+      },
+      "armed-conflict": {
+        word: "armed conflict",
+        ipa: "/ɑːmd ˈkɒn.flɪkt/",
+        pos: "noun phrase",
+        level: "C1",
+        time: "32:40",
+        turnId: "turn-82",
+        cat: "humanitarian",
+        def: "Organized violence or hostilities between military forces, state armies, or non-state armed factions.",
+        quote: "Paula (32:40): \"I worked a lot with conflict—armed conflict. I analyzed geopolitical situations from a humanitarian legal perspective.\"",
+        l1: "conflicto armado"
+      },
+      "geopolitical": {
+        word: "geopolitical",
+        ipa: "/ˌdʒiː.əʊ.pəˈlɪt.ɪ.kəl/",
+        pos: "adjective",
+        level: "C1",
+        time: "32:48",
+        turnId: "turn-84",
+        cat: "humanitarian",
+        def: "Relating to the influence of geographic territory, borders, and regional resources on international politics and power dynamics.",
+        quote: "Paula (32:48): \"I analyzed a lot of geopolitical matters, but I wasn't deployed directly inside active war zones.\"",
+        l1: "geopolítico"
+      },
+      "humanitarian-law": {
+        word: "humanitarian law",
+        ipa: "/hjuːˌmæn.ɪˈteə.ri.ən lɔː/",
+        pos: "noun phrase",
+        level: "C1",
+        time: "34:32",
+        turnId: "turn-90",
+        cat: "humanitarian",
+        def: "A set of international rules (such as the Geneva Conventions) that seek to limit the effects of armed conflict and protect non-combatants.",
+        quote: "Paula (33:45): \"We have the psychological edge, humanitarian law, projects about sustainability, resilience, and all those things.\"",
+        l1: "derecho internacional humanitario"
+      },
+      "in-the-field": {
+        word: "in the field",
+        ipa: "/ɪn ðə fiːld/",
+        pos: "idiom / phrase",
+        level: "B2",
+        time: "32:21",
+        turnId: "turn-80",
+        cat: "humanitarian",
+        def: "Conducting practical, operational, or humanitarian missions on the ground in real-world environments rather than behind a desk.",
+        quote: "Paula (32:21): \"I worked in the field in Brazil... preparing response systems for vulnerable communities.\"",
+        l1: "en el terreno / trabajo de campo"
+      },
+      "frontline": {
+        word: "frontline",
+        ipa: "/ˈfrʌnt.laɪn/",
+        pos: "adjective / noun",
+        level: "C1",
+        time: "33:01",
+        turnId: "turn-88",
+        cat: "humanitarian",
+        def: "The most immediate, direct point of operational contact with emergencies, crises, or conflict zones.",
+        quote: "Paula (33:01): \"When I became a mother, I had to pause frontline fieldwork and re-evaluate my priorities.\"",
+        l1: "primera línea de acción"
+      },
+      "anti-corruption": {
+        word: "anti-corruption",
+        ipa: "/ˌæn.ti.kəˈrʌp.ʃən/",
+        pos: "adjective",
+        level: "C1",
+        time: "42:31",
+        turnId: "turn-108",
+        cat: "work",
+        def: "Policies, institutions, and legal frameworks designed to prevent public graft, bribery, and institutional misconduct.",
+        quote: "Paula (42:31): \"Only when I returned from Brazil to Argentina did I work in the public sector, in the anti-corruption office—in the preventive division.\"",
+        l1: "anticorrupción / prevención de fraude"
+      },
+      "internal-investigator": {
+        word: "internal investigator",
+        ipa: "/ɪnˈtɜː.nəl ɪnˈves.tɪ.ɡeɪ.tər/",
+        pos: "noun phrase",
+        level: "C1",
+        time: "36:00",
+        turnId: "turn-94",
+        cat: "work",
+        def: "A corporate specialist who conducts fair, independent inquiries into internal workplace complaints, ethical lapses, and employee grievances.",
+        quote: "Paula (36:00): \"I work as an internal investigator... It's not strictly legal, it's HR. Working with people, communication, leadership, and harassment.\"",
+        l1: "investigador/a interno/a de RRHH"
+      },
+      "harassment": {
+        word: "harassment",
+        ipa: "/ˈhær.əs.mənt/",
+        pos: "noun",
+        level: "B2",
+        time: "36:00",
+        turnId: "turn-94",
+        cat: "work",
+        def: "Aggressive, intimidating, or unwelcome behaviour by an individual or group towards a colleague in a professional environment.",
+        quote: "Paula (36:00): \"I handle cases involving workplace culture, communication breakdowns, and harassment.\"",
+        l1: "acoso laboral / hostigamiento"
+      },
+      "resilience": {
+        word: "resilience",
+        ipa: "/rɪˈzɪl.jəns/",
+        pos: "noun",
+        level: "C1",
+        time: "34:32",
+        turnId: "turn-90",
+        cat: "work",
+        def: "The mental strength and capability to withstand, adapt to, and recover quickly from acute stress, trauma, or prolonged adversity.",
+        quote: "Paula (33:45): \"Our project integrates sustainability, resilience, and training teams to endure high pressure.\"",
+        l1: "resiliencia / capacidad de sobreponerse"
+      },
+      "sustainability": {
+        word: "sustainability",
+        ipa: "/səˌsteɪ.nəˈbɪl.ə.ti/",
+        pos: "noun",
+        level: "B2",
+        time: "34:32",
+        turnId: "turn-90",
+        cat: "work",
+        def: "The capacity to sustain human well-being, team endurance, and organizational health over the long haul without causing burnout.",
+        quote: "Paula (33:45): \"We look at sustainability not just environmentally, but for human teams facing constant strain.\"",
+        l1: "sostenibilidad / equilibrio a largo plazo"
+      },
+      "under-pressure": {
+        word: "under pressure",
+        ipa: "/ˈʌn.dər ˈpreʃ.ər/",
+        pos: "idiom",
+        level: "B2",
+        time: "09:18",
+        turnId: "turn-14",
+        cat: "idioms",
+        def: "Subjected to intense urgency, difficult expectations, or high emotional and operational stress.",
+        quote: "Paula (08:50): \"Our project that we have with Bernarda is Minds Under Pressure... for teams operating under severe strain.\"",
+        l1: "bajo presión"
+      },
+      "emotional-distance": {
+        word: "emotional distance",
+        ipa: "/ɪˌməʊ.ʃən.əl ˈdɪs.təns/",
+        pos: "noun phrase",
+        level: "C1",
+        time: "43:22",
+        turnId: "turn-112",
+        cat: "work",
+        def: "A healthy psychological boundary that allows professionals to maintain objective empathy without absorbing debilitating personal trauma.",
+        quote: "Paula (43:22): \"We train people to manage stress and maintain emotional distance when it's necessary.\"",
+        l1: "distancia emocional / desapego objetivo"
+      },
+      "mitigate": {
+        word: "mitigate",
+        ipa: "/ˈmɪt.ɪ.ɡeɪt/",
+        pos: "verb",
+        level: "C1",
+        time: "43:43",
+        turnId: "turn-113",
+        cat: "work",
+        def: "To make a stressful situation, harmful effect, or crisis less severe, harsh, or damaging.",
+        quote: "Louie (43:43): \"So you're preparing them to recover mentally, or to mitigate and reduce the effects?\"",
+        l1: "mitigar / atenuar / reducir el impacto"
+      },
+      "stress-management": {
+        word: "stress management",
+        ipa: "/stres ˈmæn.ɪdʒ.mənt/",
+        pos: "noun phrase",
+        level: "B2",
+        time: "43:22",
+        turnId: "turn-112",
+        cat: "work",
+        def: "A spectrum of techniques and coping mechanisms aimed at controlling personal and team tension in demanding conditions.",
+        quote: "Paula (43:22): \"We train people in stress management, helping corporate and field teams stay grounded.\"",
+        l1: "gestión del estrés"
+      },
+      "corporate-world": {
+        word: "corporate world",
+        ipa: "/ˈkɔː.pər.ət wɜːld/",
+        pos: "noun phrase",
+        level: "B2",
+        time: "36:46",
+        turnId: "turn-96",
+        cat: "work",
+        def: "The commercial, enterprise sector characterized by formal hierarchies, compliance frameworks, and corporate etiquette.",
+        quote: "Paula (36:46): \"I'm going to present something quite innovative for the corporate world.\"",
+        l1: "mundo corporativo"
+      },
+      "conflict-of-interest": {
+        word: "conflict of interest",
+        ipa: "/ˌkɒn.flɪkt əv ˈɪn.trəst/",
+        pos: "noun phrase",
+        level: "C1",
+        time: "41:07",
+        turnId: "turn-104",
+        cat: "work",
+        def: "A situation where an individual's personal or secondary activities might compromise their professional integrity or corporate responsibilities.",
+        quote: "Paula (41:07): \"I'm careful to say volunteer network so there is no conflict of interest with the pharmaceutical laboratory.\"",
+        l1: "conflicto de intereses"
+      },
+      "know-your-audience": {
+        word: "know your audience",
+        ipa: "/nəʊ jɔːr ˈɔː.di.əns/",
+        pos: "idiom",
+        level: "B2",
+        time: "38:52",
+        turnId: "turn-100",
+        cat: "communication",
+        def: "To tailor your vocabulary, examples, and tone to the specific expectations, cultural background, and values of your listeners.",
+        quote: "Louie (38:52): \"I think you're right. You have to know your audience.\"",
+        l1: "conocer a tu audiencia"
+      },
+      "to-the-point": {
+        word: "to the point",
+        ipa: "/tə ðə pɔɪnt/",
+        pos: "idiom / adjective",
+        level: "B2",
+        time: "39:03",
+        turnId: "turn-101",
+        cat: "communication",
+        def: "Concise, relevant, and direct; getting straight to the core matter without extraneous preamble.",
+        quote: "Louie (39:03): \"You believe they are quite to the point, so how will you start your presentation?\"",
+        l1: "al grano / directo y conciso"
+      },
+      "succinct": {
+        word: "succinct",
+        ipa: "/səkˈsɪŋkt/",
+        pos: "adjective",
+        level: "C1",
+        time: "37:15",
+        turnId: "turn-98",
+        cat: "communication",
+        def: "Briefly and clearly expressed in few well-chosen words; compact and focused.",
+        quote: "Paula (37:15): \"I have 15 minutes and 10 questions. I need to be very succinct and specific in my responses.\"",
+        l1: "sucinto / breve y claro"
+      },
+      "simplify": {
+        word: "simplify",
+        ipa: "/ˈsɪm.plɪ.faɪ/",
+        pos: "verb",
+        level: "B2",
+        time: "38:08",
+        turnId: "turn-99",
+        cat: "communication",
+        def: "To make something easier to understand by removing unnecessary complexity, jargon, or confusing phrasing.",
+        quote: "Paula (37:52): \"I create concepts, and then I say no, this is too complicated. I need to simplify everything.\"",
+        l1: "simplificar"
+      },
+      "put-skills-to-good-use": {
+        word: "put skills to good use",
+        ipa: "/pʊt skɪlz tə ɡʊd juːs/",
+        pos: "idiom",
+        level: "B2",
+        time: "09:45",
+        turnId: "turn-15",
+        cat: "idioms",
+        def: "To apply one's experience, knowledge, and abilities in a worthwhile, impactful manner.",
+        quote: "Louie (09:45): \"You want to put your skills to good use, try them in a new arena.\"",
+        l1: "aprovechar las habilidades / darles buen uso"
+      },
+      "new-arena": {
+        word: "new arena",
+        ipa: "/njuː əˈriː.nə/",
+        pos: "noun phrase",
+        level: "C1",
+        time: "09:45",
+        turnId: "turn-15",
+        cat: "lifestyle",
+        def: "A fresh sector, field, or sphere of action where you can test your capabilities and make a distinct mark.",
+        quote: "Louie (09:45): \"You want to put your skills to good use, try them in a new arena.\"",
+        l1: "nuevo ámbito / nuevo terreno"
+      },
+      "add-value": {
+        word: "add value",
+        ipa: "/æd ˈvæl.juː/",
+        pos: "collocation",
+        level: "B2",
+        time: "09:19",
+        turnId: "turn-14",
+        cat: "work",
+        def: "To provide meaningful improvement, unique insights, or genuine benefit beyond formal routines.",
+        quote: "Paula (09:19): \"After so many years of experience, you want to add value in another way.\"",
+        l1: "aportar valor / sumar valor"
+      },
+      "fortune-teller": {
+        word: "fortune teller",
+        ipa: "/ˈfɔː.tʃuːn ˌtel.ər/",
+        pos: "noun",
+        level: "B2",
+        time: "14:32",
+        turnId: "turn-35",
+        cat: "spirituality",
+        def: "A person who purports to foresee future life developments or offer intuitive psychological insight through cards or symbols.",
+        quote: "Louie (14:32): \"In Vietnam, fortune tellers are very common... people go to discuss their futures and emotions for guidance.\"",
+        l1: "adivino/a / vidente"
+      },
+      "empathy": {
+        word: "empathy",
+        ipa: "/ˈem.pə.θi/",
+        pos: "noun",
+        level: "B2",
+        time: "23:22",
+        turnId: "turn-55",
+        cat: "communication",
+        def: "The psychological capacity to step into another person's emotional shoes and understand their perspective deeply.",
+        quote: "Louie (23:22): \"You have the humanity, you have the empathy... people need compassionate lawyers when they need them most.\"",
+        l1: "empatía"
+      },
+      "self-reflect": {
+        word: "self-reflect",
+        ipa: "/ˌself.rɪˈflekt/",
+        pos: "verb",
+        level: "B2",
+        time: "24:07",
+        turnId: "turn-59",
+        cat: "lifestyle",
+        def: "To thoughtfully examine one's own thoughts, feelings, motivations, and life journey.",
+        quote: "Louie (24:07): \"Where is a space that you love to self-reflect?\"",
+        l1: "reflexionar sobre uno mismo / introspección"
+      },
+      "intuition": {
+        word: "intuition",
+        ipa: "/ˌɪn.tʃuːˈɪʃ.ən/",
+        pos: "noun",
+        level: "B2",
+        time: "23:18",
+        turnId: "turn-54",
+        cat: "spirituality",
+        def: "Direct perception of truth or understanding without reliance on conscious linear deduction.",
+        quote: "Paula (23:18): \"My grandmother was deeply spiritual with great intuition, while my father was strictly rational.\"",
+        l1: "intuición"
+      },
+      "lineage": {
+        word: "lineage",
+        ipa: "/ˈlɪn.i.ɪdʒ/",
+        pos: "noun",
+        level: "C1",
+        time: "23:18",
+        turnId: "turn-54",
+        cat: "spirituality",
+        def: "Family descent, ancestry, or the passing down of values and spiritual perspectives across generations.",
+        quote: "Paula (23:18): \"From the beginning, I had this dual lineage: the rational mind of a lawyer and the spiritual heart of my grandmother.\"",
+        l1: "linaje / raíces familiares"
+      },
+      "synthesis": {
+        word: "synthesis",
+        ipa: "/ˈsɪn.θə.sɪs/",
+        pos: "noun",
+        level: "C1",
+        time: "23:20",
+        turnId: "turn-54",
+        cat: "communication",
+        def: "The creative union of two seemingly contrasting ideas or traditions into a new, comprehensive whole.",
+        quote: "Paula (23:20): \"I am both: a lawyer with a spiritual way.\"",
+        l1: "síntesis armoniosa"
+      },
+      "authentic": {
+        word: "authentic",
+        ipa: "/ɔːˈθen.tɪk/",
+        pos: "adjective",
+        level: "B2",
+        time: "52:39",
+        turnId: "turn-133",
+        cat: "communication",
+        def: "Genuine, real, and true to one's own inner values rather than putting on a corporate mask.",
+        quote: "Paula (52:39): \"People who are authentic and genuine... it's about being yourself and speaking openly.\"",
+        l1: "auténtico / fiel a uno mismo"
+      },
+      "genuine": {
+        word: "genuine",
+        ipa: "/ˈdʒen.ju.ɪn/",
+        pos: "adjective",
+        level: "B2",
+        time: "52:45",
+        turnId: "turn-135",
+        cat: "communication",
+        def: "Truly what something claims to be; sincere, honest, and heartfelt.",
+        quote: "Louie (58:05): \"You're a very lovely and genuine person. It's been truly enjoyable to meet you.\"",
+        l1: "genuino / sincero"
+      },
+      "meeting-fatigue": {
+        word: "meeting fatigue",
+        ipa: "/ˈmiː.tɪŋ fəˌtiːɡ/",
+        pos: "noun phrase",
+        level: "C1",
+        time: "48:39",
+        turnId: "turn-124",
+        cat: "work",
+        def: "The psychological exhaustion caused by attending an excessive number of virtual meetings with little substantive engagement.",
+        quote: "Paula (48:39): \"The world today is meeting after meeting... and sometimes an hour and a half where nobody says anything!\"",
+        l1: "fatiga por exceso de reuniones"
+      },
+      "onboarding": {
+        word: "onboarding",
+        ipa: "/ˈɒnˌbɔː.dɪŋ/",
+        pos: "noun",
+        level: "B2",
+        time: "49:13",
+        turnId: "turn-126",
+        cat: "work",
+        def: "The structured process of integrating a new employee into an organization and familiarizing them with tools and culture.",
+        quote: "Paula (49:13): \"We need to prepare onboarding for people who are joining the department.\"",
+        l1: "inducción / incorporación de personal"
+      },
+      "set-aside": {
+        word: "set aside",
+        ipa: "/set əˈsaɪd/",
+        pos: "phrasal verb",
+        level: "B2",
+        time: "51:12",
+        turnId: "turn-130",
+        cat: "idioms",
+        def: "To reserve or dedicate time or resources for a particular contingency or future purpose.",
+        quote: "Louie (51:12): \"At least the time was set aside, just in case someone needed to discuss something.\"",
+        l1: "reservar / apartar tiempo"
+      },
+      "just-in-case": {
+        word: "just in case",
+        ipa: "/dʒʌst ɪn keɪs/",
+        pos: "idiom",
+        level: "B2",
+        time: "51:17",
+        turnId: "turn-131",
+        cat: "idioms",
+        def: "As a precaution against a possible future need, occurrence, or eventuality.",
+        quote: "Louie (51:17): \"Exactly, just in case!\"",
+        l1: "por si acaso"
+      },
+      "war-termination": {
+        word: "war termination",
+        ipa: "/wɔː ˌtɜː.mɪˈneɪ.ʃən/",
+        pos: "noun phrase",
+        level: "C2",
+        time: "46:04",
+        turnId: "turn-120",
+        cat: "communication",
+        def: "The academic and geopolitical discipline analyzing how hostilities are halted, peace negotiated, and durable stability achieved.",
+        quote: "Sarah Paine (Clip, 46:04): \"I'm going to talk about war termination today. Good idea, right?\"",
+        l1: "finalización / terminación estratégica de guerras"
+      },
+      "outline": {
+        word: "outline",
+        ipa: "/ˈaʊt.laɪn/",
+        pos: "verb",
+        level: "B2",
+        time: "47:31",
+        turnId: "turn-123",
+        cat: "communication",
+        def: "To give a concise summary of the main points or structure of a presentation before elaborating.",
+        quote: "Louie (47:31): \"She's very good at outlining what she's going to do in her answers so the audience knows what to expect.\"",
+        l1: "esbozar / delinear la estructura"
+      },
+      "cut-to-the-chase": {
+        word: "cut to the chase",
+        ipa: "/kʌt tə ðə tʃeɪs/",
+        pos: "idiom",
+        level: "C1",
+        time: "37:34",
+        turnId: "turn-98",
+        cat: "idioms",
+        def: "To get straight to the point without wasting time on unimportant pleasantries or tangential details.",
+        quote: "Paula (37:15): \"German and Polish colleagues appreciate directness; you have to cut to the chase and present your solutions clearly.\"",
+        l1: "ir al grano / directo a lo importante"
+      },
+      "circadian-rhythm": {
+        word: "circadian rhythm",
+        ipa: "/sɜːˈkeɪ.di.ən ˈrɪð.əm/",
+        pos: "noun phrase",
+        level: "C1",
+        time: "57:48",
+        turnId: "turn-145",
+        cat: "lifestyle",
+        def: "The natural internal process that regulates the 24-hour sleep-wake cycle in living organisms.",
+        quote: "Louie (57:48): \"My biological clock—my circadian rhythm—completely changed when I moved to Vietnam.\"",
+        l1: "ritmo circadiano"
+      },
+      "biological-clock": {
+        word: "biological clock",
+        ipa: "/ˌbaɪ.əˈlɒdʒ.ɪ.kəl klɒk/",
+        pos: "noun phrase",
+        level: "B2",
+        time: "57:48",
+        turnId: "turn-145",
+        cat: "lifestyle",
+        def: "The innate physiological mechanism that governs rhythmic physical and mental cycles in humans.",
+        quote: "Louie (57:48): \"My clock, my biological clock, had to adapt to early sunrise hours.\"",
+        l1: "reloj biológico"
+      },
+      "equator": {
+        word: "equator",
+        ipa: "/ɪˈkweɪ.tər/",
+        pos: "noun",
+        level: "B2",
+        time: "56:11",
+        turnId: "turn-141",
+        cat: "lifestyle",
+        def: "The imaginary line around the middle of the planet where daylight hours remain remarkably consistent throughout the year.",
+        quote: "Louie (56:11): \"Nearer the equator, people rise early and sleep earlier because daylight doesn't have extreme seasonal swings.\"",
+        l1: "ecuador terrestre"
+      },
+      "understatement": {
+        word: "understatement",
+        ipa: "/ˈʌn.dəˌsteɪt.mənt/",
+        pos: "noun",
+        level: "C1",
+        time: "38:08",
+        turnId: "turn-99",
+        cat: "communication",
+        def: "The understated rhetorical practice of describing something as smaller, less intense, or calmer than it truly is.",
+        quote: "Louie (38:08): \"In English, understatement is often used to keep tense conversations calm and polite.\"",
+        l1: "atenuación / moderación retórica"
+      },
+      "serendipity": {
+        word: "serendipity",
+        ipa: "/ˌser.ənˈdɪp.ə.ti/",
+        pos: "noun",
+        level: "C1",
+        time: "58:26",
+        turnId: "turn-148",
+        cat: "lifestyle",
+        def: "The fortunate occurrence of discovering delightful connections or valuable opportunities by happy coincidence.",
+        quote: "Louie (58:26): \"Before I knew you were friends with Bernie, I was so excited to meet you because Paula is my mother's name!\"",
+        l1: "serendipia / feliz coincidencia"
+      },
+      "stepping-stone": {
+        word: "stepping stone",
+        ipa: "/ˈstep.ɪŋ stəʊn/",
+        pos: "idiom / metaphor",
+        level: "B2",
+        time: "09:19",
+        turnId: "turn-14",
+        cat: "idioms",
+        def: "An interim experience or project that provides progress towards achieving a larger personal or professional ambition.",
+        quote: "Paula (09:19): \"After university, humanitarian work was my stepping stone to finding my true life purpose.\"",
+        l1: "peldaño / trampolín hacia algo mayor"
+      },
+      "infectious-energy": {
+        word: "infectious energy",
+        ipa: "/ɪnˈfek.ʃəs ˈen.ə.dʒi/",
+        pos: "collocation",
+        level: "C1",
+        time: "31:23",
+        turnId: "turn-77",
+        cat: "lifestyle",
+        def: "A radiant, buoyant personal warmth and positive spirit that quickly uplifts everyone in the room.",
+        quote: "Louie (31:23): \"You infect people with your energy—in a wonderful way! People feel uplifted around you.\"",
+        l1: "energía contagiosa y positiva"
+      }
+    };
+
+    function v(key, displayWord) {
+      const item = VOCAB_DB[key];
+      const label = displayWord || (item ? item.word : key);
+      return `<span class="vocab-mark" data-vkey="${key}" onclick="inspectVocab('${key}')">${label}</span>`;
+    }
+
+    function fixBadge(corrected, rawMistake) {
+      return `<span class="asr-fix-pill" title="Note-taker misheard '${corrected}' as '${rawMistake}'">✨ Fixed: "${corrected}" <span class="text-stone-400">(note-taker wrote: "${rawMistake}")</span></span>`;
+    }
+
+    // =========================================================================
+    // 2. COMPLETE CLEANED TRANSCRIPT (ALL TURNS 05:58 TO 59:31)
+    // =========================================================================
+    const TRANSCRIPT_TURNS = [
+      // -----------------------------------------------------------------------
+      // CHAPTER I • WELCOMING, BERNIE'S REFERRAL & BOEHRINGER INGELHEIM
+      // -----------------------------------------------------------------------
+      {
+        id: "turn-1",
+        chapterId: "chap-1",
+        chapterTitle: "Chapter I • Welcoming, Bernie's Referral & Boehringer Ingelheim (05:58 – 12:26)",
+        speaker: "Louie",
+        time: "05:58",
+        html: `Lovely to meet you, Paula!`
+      },
+      {
+        id: "turn-2",
+        speaker: "Paula",
+        time: "05:58",
+        html: `This is my first time here, so I don't know...`
+      },
+      {
+        id: "turn-3",
+        speaker: "Louie",
+        time: "06:01",
+        html: `No problem at all, no problem! Thank you for joining me. And how are you today, Paula? Can you hear me okay?`
+      },
+      {
+        id: "turn-4",
+        speaker: "Paula",
+        time: "06:15",
+        html: `Actually, I've just finished my work. I see you and I hear you, but the video is freezing a bit, like a—`
+      },
+      {
+        id: "turn-5",
+        speaker: "Louie",
+        time: "06:25",
+        html: `Likewise! Sometimes it takes a second to connect properly because Preply sends a huge chunk of data across the connection.`
+      },
+      {
+        id: "turn-6",
+        speaker: "Paula",
+        time: "06:42",
+        html: `Okay, perfect! Now it seems to be working.`
+      },
+      {
+        id: "turn-7",
+        speaker: "Louie",
+        time: "06:50",
+        html: `Yes! And what have you been up to? I gather you live in Argentina, is that correct?`
+      },
+      {
+        id: "turn-8",
+        speaker: "Paula",
+        time: "07:01",
+        html: `Yes, I live in Argentina! I'm a friend of ${fixBadge("Bernarda ('Bernie')", "Bernada")}.`
+      },
+      {
+        id: "turn-9",
+        speaker: "Louie",
+        time: "07:06",
+        html: `Exactly! That's why I was so excited to meet you. She told me that she spoke with you and referred you. It was absolutely lovely of her.`
+      },
+      {
+        id: "turn-10",
+        speaker: "Paula",
+        time: "07:18",
+        html: `Yes, exactly! And I said, "Yes, please! Why not have the same teacher?" Because we are working together on this project right now, so I said, "Okay, I know you're great and you have a very interesting life, so I'm going to start with Louie." Because I work in English—I work with German and ${fixBadge("Polish colleagues", "Poland people")} in English, so it can be complicated with different accents!`
+      },
+      {
+        id: "turn-11",
+        speaker: "Louie",
+        time: "08:05",
+        html: `Interesting! And which company do you work for?`
+      },
+      {
+        id: "turn-12",
+        speaker: "Paula",
+        time: "08:15",
+        html: `I work for ${fixBadge("Boehringer Ingelheim", "Boehringer Ingelham")}. You know the pharmaceutical company?`
+      },
+      {
+        id: "turn-13",
+        speaker: "Louie",
+        time: "08:23",
+        html: `Yes, yes, yes! Very nice. And so you're on the same project as Bernie. But what are your exact goals, if I may ask?`
+      },
+      {
+        id: "turn-14",
+        speaker: "Paula",
+        time: "08:50",
+        html: `My goals? My goal is trying to make this project we have with Bernarda—${v("under-pressure", "Minds Under Pressure")} ${fixBadge("Minds Under Pressure", "Mind under. Pressure")}—truly work. We started in August. I like my normal corporate work, but after many years of experience, you want to ${v("add-value", "add value")} in another way, using a different channel as a ${v("stepping-stone", "stepping stone")}.`
+      },
+      {
+        id: "turn-15",
+        speaker: "Louie",
+        time: "09:45",
+        html: `I completely understand. You want to ${v("put-skills-to-good-use", "put your skills to good use")} and try them in a ${v("new-arena", "new arena")}. Very good! And what are you into outside of work? What are your hobbies and passions?`
+      },
+      {
+        id: "turn-16",
+        speaker: "Paula",
+        time: "10:14",
+        html: `Oh, so many things! I love dance, for example—I dance ${v("flamenco", "flamenco")}! This is my hobby.`
+      },
+      {
+        id: "turn-17",
+        speaker: "Louie",
+        time: "10:21",
+        html: `Oh, lovely! Flamenco is fantastic.`
+      },
+      {
+        id: "turn-18",
+        speaker: "Paula",
+        time: "10:21",
+        html: `Yes! And I also love—don't tell Bernarda about this!—art sessions and courses exploring the ${v("symbolism", "symbolism")} of things, like tarot and astrology. All the things that are a little mysterious and esoteric.`
+      },
+      {
+        id: "turn-19",
+        speaker: "Louie",
+        time: "11:08",
+        html: `Yes, mysterious, spiritual, symbolic. We love things like that.`
+      },
+      {
+        id: "turn-20",
+        speaker: "Paula",
+        time: "11:18",
+        html: `Exactly! I love exploring how a symbol can reveal something unconscious that you didn't know before. I take many courses about that.`
+      },
+      {
+        id: "turn-21",
+        speaker: "Louie",
+        time: "11:34",
+        html: `Mhm, exploring the deeper layers.`
+      },
+      {
+        id: "turn-22",
+        speaker: "Paula",
+        time: "11:35",
+        html: `It's just a hobby, but I love to meditate and practice ${v("active-imagination", "active imagination")}. It's a psychological technique where you use your mind and imagination to transform your reality.`
+      },
+      {
+        id: "turn-23",
+        speaker: "Louie",
+        time: "11:59",
+        html: `Yes, Carl Jung's active imagination. Connecting mind and reality.`
+      },
+      {
+        id: "turn-24",
+        speaker: "Paula",
+        time: "11:59",
+        html: `Yes! And I think I can bring some of that into ${v("under-pressure", "Minds Under Pressure")}, because it's connected with how the mind handles stress. But Bernarda and I have slightly different approaches to it!`
+      },
+
+      // -----------------------------------------------------------------------
+      // CHAPTER II • THE "WEIRD LAWYER", SYMBOLISM & SWITCHING TO GOOGLE MEET
+      // -----------------------------------------------------------------------
+      {
+        id: "turn-25",
+        chapterId: "chap-2",
+        chapterTitle: "Chapter II • The \"Weird Lawyer\", Symbolism & Switching to Google Meet (12:26 – 20:12)",
+        speaker: "Louie",
+        time: "12:26",
+        html: `Let's do a little warm-up! I have a lovely image I often use for architecture classes, but it's wonderful for looking at the ${v("symbolism", "symbolism")} of things. Would you like to look at it?`
+      },
+      {
+        id: "turn-26",
+        speaker: "Paula",
+        time: "12:53",
+        html: `Yes, I'd like that! Because, you see, I am a lawyer... but I'm a very weird lawyer!`
+      },
+      {
+        id: "turn-27",
+        speaker: "Louie",
+        time: "13:13",
+        html: `A weird lawyer—I love that! Not your conventional courtroom lawyer.`
+      },
+      {
+        id: "turn-28",
+        speaker: "Paula",
+        time: "13:15",
+        html: `Exactly! I do my part in the legal realm, but I view astrology and tarot as another communication system entirely—another language of symbols.`
+      },
+      {
+        id: "turn-29",
+        speaker: "Louie",
+        time: "14:18",
+        html: `Yes! It's another framework for understanding people.`
+      },
+      {
+        id: "turn-30",
+        speaker: "Paula",
+        time: "14:19",
+        html: `Totally different! That's why I say dance, imagination, and ${v("symbolism", "symbolism")}.`
+      },
+      {
+        id: "turn-31",
+        speaker: "Louie",
+        time: "14:23",
+        html: `You know, in Vietnam—where I live—we have ${v("fortune-teller", "fortune tellers")}. Before my girlfriend and I started dating, she visited a fortune teller. It's a huge part of the spiritual culture here.`
+      },
+      {
+        id: "turn-32",
+        speaker: "Paula",
+        time: "15:21",
+        html: `Now your video is cutting out a little bit again. Is it my connection or the platform?`
+      },
+      {
+        id: "turn-33",
+        speaker: "Louie",
+        time: "15:31",
+        html: `My internet here is an industrial-strength office fiber line, but Preply's classroom platform transmits enormous amounts of real-time telemetry and data that can cause video lag.`
+      },
+      {
+        id: "turn-34",
+        speaker: "Paula",
+        time: "15:42",
+        html: `Yes, I work from home and always have a very solid connection for corporate calls.`
+      },
+      {
+        id: "turn-35",
+        speaker: "Louie",
+        time: "16:02",
+        html: `What we can do is hop over to Google Meet! It's much lighter, doesn't overload the connection with background data, and runs smoothly. Let me generate a meeting link right now.`
+      },
+      {
+        id: "turn-36",
+        speaker: "Paula",
+        time: "16:28",
+        html: `Okay, perfect!`
+      },
+      {
+        id: "turn-37",
+        speaker: "Louie",
+        time: "18:16",
+        html: `I'm just pasting the Google Meet link into our Preply chat. I'll see you on Google Meet in just a second!`
+      },
+      {
+        id: "turn-38",
+        speaker: "Paula",
+        time: "19:08",
+        html: `Great, joining now.`
+      },
+      {
+        id: "turn-39",
+        speaker: "Louie",
+        time: "19:42",
+        html: `Hello! Can you hear me clearly now?`
+      },
+      {
+        id: "turn-40",
+        speaker: "Paula",
+        time: "19:45",
+        html: `Yes, I hear you perfectly! Let me just close the other browser tabs.`
+      },
+      {
+        id: "turn-41",
+        speaker: "Louie",
+        time: "20:05",
+        html: `Take your time.`
+      },
+      {
+        id: "turn-42",
+        speaker: "Paula",
+        time: "20:12",
+        html: `Okay! Yes, now it's running so much smoother.`
+      },
+
+      // -----------------------------------------------------------------------
+      // CHAPTER III • ARCHETYPES, HERITAGE & THE AMALGAMATION SANCTUARY
+      // -----------------------------------------------------------------------
+      {
+        id: "turn-43",
+        chapterId: "chap-3",
+        chapterTitle: "Chapter III • Archetypes, Heritage & The Amalgamation Sanctuary (20:12 – 26:41)",
+        speaker: "Louie",
+        time: "20:12",
+        html: `Wonderful! Way better. So we were talking about ${v("fortune-teller", "fortune tellers")}. In Vietnam, people frequently consult them for counseling—to discuss their emotions, futures, and to help make big life decisions.`
+      },
+      {
+        id: "turn-44",
+        speaker: "Paula",
+        time: "20:52",
+        html: `Like ${fixBadge("Romani fortune tellers", "the gypsy. People.")}?`
+      },
+      {
+        id: "turn-45",
+        speaker: "Louie",
+        time: "20:55",
+        html: `Yes, palm readers and spiritual advisers. Have you ever had a reading or visited one?`
+      },
+      {
+        id: "turn-46",
+        speaker: "Paula",
+        time: "21:25",
+        html: `Yes! I love it. I don't necessarily believe blindly in palm readings, but with tarot and astrology, you use the symbols as tools to understand the ${v("archetype", "archetype")} of the person.`
+      },
+      {
+        id: "turn-47",
+        speaker: "Louie",
+        time: "22:14",
+        html: `Exactly correct—${v("archetype", "archetype")}. Universal human patterns.`
+      },
+      {
+        id: "turn-48",
+        speaker: "Paula",
+        time: "22:18",
+        html: `Yes! To understand your profile and understand yourself, because you need to do deep inner work on yourself. My grandmother was deeply spiritual—I don't want to say a medium, but she had special ${v("intuition", "intuition")} and sensitivity. My father, on the other hand, was very rational. So I have both in my ${v("lineage", "lineage")}: a lawyer with a spiritual path—a true ${v("synthesis", "synthesis")}.`
+      },
+      {
+        id: "turn-49",
+        speaker: "Louie",
+        time: "23:22",
+        html: `That's brilliant, Paula. Because you have the legal sharpness, but you also have the humanity and the ${v("empathy", "empathy")}. People need compassionate lawyers most when they are going through stressful crises.`
+      },
+      {
+        id: "turn-50",
+        speaker: "Paula",
+        time: "23:46",
+        html: `Yeah, absolutely.`
+      },
+      {
+        id: "turn-51",
+        speaker: "Louie",
+        time: "24:07",
+        html: `And where is a space where you love to ${v("self-reflect", "self-reflect")}? Do you have a personal sanctuary at home?`
+      },
+      {
+        id: "turn-52",
+        speaker: "Paula",
+        time: "24:20",
+        html: `Yes! Right where I am sitting now. This is my dedicated space. I built it with all my meaningful things: flamenco, tarot, astrology, flowers, and I have a Buddha statue here.`
+      },
+      {
+        id: "turn-53",
+        speaker: "Louie",
+        time: "24:51",
+        html: `Lovely! Tell me about the room itself.`
+      },
+      {
+        id: "turn-54",
+        speaker: "Paula",
+        time: "24:54",
+        html: `It's like an ${v("enclosed-balcony", "enclosed balcony")} ${fixBadge("enclosed balcony (sunroom)", "balcony close, close balcony")} right beside my bedroom. I meditate here, I work here, and I stay here for many hours. And I even practice my flamenco ${v("castanets", "castañuelas")} ${fixBadge("castañuelas (castanets)", "castañuelas")} right here!`
+      },
+      {
+        id: "turn-55",
+        speaker: "Louie",
+        time: "25:35",
+        html: `Ah, ${v("castanets", "castanets")}—castañuelas! We use both terms in English.`
+      },
+      {
+        id: "turn-56",
+        speaker: "Paula",
+        time: "25:54",
+        html: `I practice my castañuelas classes right here! I have flowers and colours all together. If I continue adding things, I won't have room left to work!`
+      },
+      {
+        id: "turn-57",
+        speaker: "Louie",
+        time: "26:20",
+        html: `We have a wonderful word in English for that: it is an ${v("amalgamation", "amalgamation")}! An amalgamation of you—a harmonious mixture of all the unique elements that make up your spirit.`
+      },
+      {
+        id: "turn-58",
+        speaker: "Paula",
+        time: "26:36",
+        html: `${v("amalgamation", "Amalgamation")}... wow, that is a really good word!`
+      },
+
+      // -----------------------------------------------------------------------
+      // CHAPTER IV • INTERACTIVE NOTES DEMO, ENERGY PENDANTS & DISASTER RELIEF
+      // -----------------------------------------------------------------------
+      {
+        id: "turn-59",
+        chapterId: "chap-4",
+        chapterTitle: "Chapter IV • Interactive Notes Demo, Energy Pendants & Disaster Relief (26:41 – 35:34)",
+        speaker: "Louie",
+        time: "26:41",
+        html: `On that note, let me share my screen and show you how I prepare lesson notes for you. You never have to worry about writing down words during our conversation!`
+      },
+      {
+        id: "turn-60",
+        speaker: "Paula",
+        time: "26:57",
+        html: `Oh, wonderful!`
+      },
+      {
+        id: "turn-61",
+        speaker: "Louie",
+        time: "27:34",
+        html: `I don't record video, but my note-taker captures the transcript. About 30 to 45 minutes after our lesson, you receive a private, calm interactive website. If you hover over any highlighted word, it gives you the definition, CEFR level, Spanish translation, and British audio pronunciation!`
+      },
+      {
+        id: "turn-62",
+        speaker: "Paula",
+        time: "28:33",
+        html: `Oh, that's amazing! Can you send that to me via Preply?`
+      },
+      {
+        id: "turn-63",
+        speaker: "Louie",
+        time: "29:07",
+        html: `Yes, directly on Preply! You get one permanent web address that updates after each lesson. You can just relax, speak freely, and know nothing is missed.`
+      },
+      {
+        id: "turn-64",
+        speaker: "Paula",
+        time: "30:00",
+        html: `That's wonderful. So I don't have to stress about taking notes while talking.`
+      },
+      {
+        id: "turn-65",
+        speaker: "Louie",
+        time: "30:37",
+        html: `Exactly! And I noticed you're wearing a beautiful stone around your necklace.`
+      },
+      {
+        id: "turn-66",
+        speaker: "Paula",
+        time: "30:48",
+        html: `Yes! It's a ${v("pendant", "pendant")} ${fixBadge("pendant (péndulo)", "pen-pendle. Pendulo.")}. It changes colour depending on my energy: sometimes white, sometimes pink, and when I have strong energy, it turns vibrant blue!`
+      },
+      {
+        id: "turn-67",
+        speaker: "Louie",
+        time: "31:23",
+        html: `That's fascinating! You have an ${v("infectious-energy", "infectious energy")}, Paula—a buoyant presence. And Bernie mentioned you have a background in ${v("disaster-relief", "disaster relief")} as well?`
+      },
+      {
+        id: "turn-68",
+        speaker: "Paula",
+        time: "32:04",
+        html: `Yes, that's true! In Brazil, I worked ${v("in-the-field", "in the field")} preparing for disaster response, especially ${v("landslide", "landslides")} ${fixBadge("landslides", "landslide")} which happen frequently in Brazil.`
+      },
+      {
+        id: "turn-69",
+        speaker: "Louie",
+        time: "32:30",
+        html: `Landslides are devastating.`
+      },
+      {
+        id: "turn-70",
+        speaker: "Paula",
+        time: "32:40",
+        html: `Yes. I also studied and worked extensively with ${v("armed-conflict", "armed conflict")} and analyzed ${v("geopolitical", "geopolitical")} dynamics from a ${v("humanitarian-law", "humanitarian law")} standpoint. But I wasn't deployed on the active ${v("frontline", "frontline")} myself because I became a mother.`
+      },
+      {
+        id: "turn-71",
+        speaker: "Louie",
+        time: "32:59",
+        html: `Congratulations! How old are your children?`
+      },
+      {
+        id: "turn-72",
+        speaker: "Paula",
+        time: "33:01",
+        html: `I have two kids: one is 12 and the other is 9! When I had my children in Brazil, I needed to pause frontline field operations. When I returned to Argentina, there was no armed conflict, but an economic and political crisis. Eventually, Bernarda and I reconnected through our professional network and founded ${v("under-pressure", "Minds Under Pressure")}.`
+      },
+      {
+        id: "turn-73",
+        speaker: "Louie",
+        time: "34:41",
+        html: `What is the biggest challenge you and Bernie are facing with the project right now?`
+      },
+      {
+        id: "turn-74",
+        speaker: "Paula",
+        time: "34:49",
+        html: `For us right now, it's time! Resources can be found when there is will, but Bernarda, Eliana, and I all have full-time jobs and families. But step by step, we are reaching our milestones.`
+      },
+
+      // -----------------------------------------------------------------------
+      // CHAPTER V • MINDS UNDER PRESSURE & THE HIGH-STAKES FRIDAY PRESENTATION
+      // -----------------------------------------------------------------------
+      {
+        id: "turn-75",
+        chapterId: "chap-5",
+        chapterTitle: "Chapter V • Minds Under Pressure & The High-Stakes Friday Presentation (35:34 – 45:05)",
+        speaker: "Paula",
+        time: "35:35",
+        html: `For example, this Friday I need to present this project inside my company!`
+      },
+      {
+        id: "turn-76",
+        speaker: "Louie",
+        time: "35:45",
+        html: `Inside Boehringer Ingelheim?`
+      },
+      {
+        id: "turn-77",
+        speaker: "Paula",
+        time: "35:45",
+        html: `Yes! Because ${v("under-pressure", "Minds Under Pressure")} isn't just for humanitarian crises; pharmaceutical laboratories also have teams operating ${v("under-pressure", "under pressure")} constantly. At the company, I work as an ${v("internal-investigator", "internal investigator")}. It's in HR, addressing workplace culture, leadership friction, and ${v("harassment", "harassment")}.`
+      },
+      {
+        id: "turn-78",
+        speaker: "Louie",
+        time: "36:46",
+        html: `Which language will you be presenting in on Friday?`
+      },
+      {
+        id: "turn-79",
+        speaker: "Paula",
+        time: "36:53",
+        html: `In English! And I'm reviewing my notes right now saying: "Make it simpler! How can I make this simpler?" Because I have 10 questions to answer in only 15 minutes to German and Polish colleagues, so I must be very ${v("succinct", "succinct")} and ${v("cut-to-the-chase", "cut to the chase")}.`
+      },
+      {
+        id: "turn-80",
+        speaker: "Louie",
+        time: "37:34",
+        html: `I completely understand. German and Polish corporate culture often values direct, efficient communication.`
+      },
+      {
+        id: "turn-81",
+        speaker: "Paula",
+        time: "37:52",
+        html: `Exactly! I start creating complex ideas, but then I tell myself: "No, ${v("simplify", "simplify")} everything!" In the ${v("corporate-world", "corporate world")}, you have to ${v("know-your-audience", "know your audience")} and speak their language.`
+      },
+      {
+        id: "turn-82",
+        speaker: "Louie",
+        time: "38:52",
+        html: `You have to ${v("know-your-audience", "know your audience")}. And how do you plan to introduce yourself in those 15 minutes?`
+      },
+      {
+        id: "turn-83",
+        speaker: "Paula",
+        time: "39:19",
+        html: `When they ask me to introduce myself and my role, I'm not going to say "internal investigator"—because people get defensive! I will say I work in "people-related matters." And I'll describe our project as an initiative that ${fixBadge("makes millions of lives better", "make million of life better")}, framing it as a voluntary initiative to avoid any ${v("conflict-of-interest", "conflict of interest")} with the company.`
+      },
+      {
+        id: "turn-84",
+        speaker: "Louie",
+        time: "41:05",
+        html: `That's very clever positioning.`
+      },
+      {
+        id: "turn-85",
+        speaker: "Paula",
+        time: "42:31",
+        html: `After I graduated in law, I told my father: "Now that you have the law degree, I'm going to do what I truly care about!" I worked in NGOs, then the preventive ${v("anti-corruption", "anti-corruption")} office in Argentina. Now, as an HR investigator, I see so many teams suffering from acute stress. With ${v("under-pressure", "Minds Under Pressure")}, we train people in ${v("stress-management", "stress management")} and maintaining ${v("emotional-distance", "emotional distance")}.`
+      },
+      {
+        id: "turn-86",
+        speaker: "Louie",
+        time: "43:43",
+        html: `So you're training them to ${v("mitigate", "mitigate")} the strain and build long-term psychological ${v("resilience", "resilience")}?`
+      },
+      {
+        id: "turn-87",
+        speaker: "Paula",
+        time: "44:05",
+        html: `Yes, exactly that! I want my 15 minutes on Friday to have a genuine human impact on leadership.`
+      },
+
+      // -----------------------------------------------------------------------
+      // CHAPTER VI • SARAH PAINE'S MASTERCLASS, MEETING FATIGUE & MOTHER PAULA
+      // -----------------------------------------------------------------------
+      {
+        id: "turn-88",
+        chapterId: "chap-6",
+        chapterTitle: "Chapter VI • Sarah Paine's Masterclass, Meeting Fatigue & Mother Paula (45:05 – 59:31)",
+        speaker: "Louie",
+        time: "45:05",
+        html: `Have you ever heard of Professor Sarah Paine? She is a renowned American naval historian, and she is magnificent at structured executive communication. Let me play a quick 30-second clip of how she begins her lectures.`
+      },
+      {
+        id: "turn-89",
+        speaker: "Sarah Paine (Clip)",
+        time: "46:01",
+        html: `It's such a pleasure to be here with you all. I'm going to talk about ${v("war-termination", "war termination")} ${fixBadge("war termination", "war terminating")} today. Good idea, right? Turns out...`
+      },
+      {
+        id: "turn-90",
+        speaker: "Paula",
+        time: "46:49",
+        html: `I can see her video, but the audio feed is very quiet on my end!`
+      },
+      {
+        id: "turn-91",
+        speaker: "Louie",
+        time: "47:31",
+        html: `I'll send you the direct YouTube link right after class! Why do I recommend her? Because she is a master at ${v("outline", "outlining")} her talk upfront. In her first minute, she says: "This is what we will cover, and when we are finished, here is what you will understand." That structured framing puts busy colleagues at ease immediately.`
+      },
+      {
+        id: "turn-92",
+        speaker: "Paula",
+        time: "47:43",
+        html: `That is exactly what I need! Because corporate life today is overwhelmed with ${v("meeting-fatigue", "meeting fatigue")}. Today I had a 1.5-hour team meeting where nobody spoke or shared anything!`
+      },
+      {
+        id: "turn-93",
+        speaker: "Louie",
+        time: "49:02",
+        html: `A bit of a shame when a meeting is called and people don't engage.`
+      },
+      {
+        id: "turn-94",
+        speaker: "Paula",
+        time: "49:13",
+        html: `People are exhausted from back-to-back calls. We were discussing ${v("onboarding", "onboarding")} for the third time in two months. If there's nothing new to discuss, why schedule an hour and a half? Half an hour is plenty!`
+      },
+      {
+        id: "turn-95",
+        speaker: "Louie",
+        time: "51:12",
+        html: `At least the time was ${v("set-aside", "set aside")}, ${v("just-in-case", "just in case")} someone had an urgent concern.`
+      },
+      {
+        id: "turn-96",
+        speaker: "Paula",
+        time: "52:26",
+        html: `Yes, but when you lead, it's so important to be ${v("authentic", "authentic")} and ${v("genuine", "genuine")}. When I was younger, I used to worry that everything had to be perfect. Now, I have no more fear—it's just about having a sincere conversation with other human beings.`
+      },
+      {
+        id: "turn-97",
+        speaker: "Louie",
+        time: "53:08",
+        html: `That is the perfect mindset. And moving forward, would you like to schedule our weekly lessons on Wednesdays at this time?`
+      },
+      {
+        id: "turn-98",
+        speaker: "Paula",
+        time: "54:15",
+        html: `Yes, Wednesday at this time is perfect for my schedule!`
+      },
+      {
+        id: "turn-99",
+        speaker: "Louie",
+        time: "54:27",
+        html: `Brilliant! I'll reserve Wednesdays for us. What time is it currently in Argentina?`
+      },
+      {
+        id: "turn-100",
+        speaker: "Paula",
+        time: "55:11",
+        html: `It is 7:00 PM in the evening here.`
+      },
+      {
+        id: "turn-101",
+        speaker: "Louie",
+        time: "55:21",
+        html: `And here in Vietnam, it is 5:00 AM in the morning!`
+      },
+      {
+        id: "turn-102",
+        speaker: "Paula",
+        time: "55:26",
+        html: `5:00 in the morning?! You work so early!`
+      },
+      {
+        id: "turn-103",
+        speaker: "Louie",
+        time: "56:11",
+        html: `Closer to the ${v("equator", "equator")}, sunrise and sunset don't shift with seasonal extremes. Everyone in Vietnam rises around 4:30 AM to exercise, and I go boxing! My ${v("circadian-rhythm", "circadian rhythm")} and ${v("biological-clock", "biological clock")} adapted completely.`
+      },
+      {
+        id: "turn-104",
+        speaker: "Paula",
+        time: "58:02",
+        html: `That's wonderful! You adapted.`
+      },
+      {
+        id: "turn-105",
+        speaker: "Louie",
+        time: "58:05",
+        html: `You are a very lovely and ${v("genuine", "genuine")} person, Paula. And here is a wonderful piece of ${v("serendipity", "serendipity")}: before I even knew you were friends with Bernie, I was excited to meet you because Paula is my mother's name!`
+      },
+      {
+        id: "turn-106",
+        speaker: "Paula",
+        time: "58:33",
+        html: `Ah, really?! That's our connection!`
+      },
+      {
+        id: "turn-107",
+        speaker: "Louie",
+        time: "58:34",
+        html: `Exactly! I thought: "What a lovely name." I'm going to send over your notes page now so you can see how everything works. Enjoy the rest of your evening in Argentina, Paula!`
+      },
+      {
+        id: "turn-108",
+        speaker: "Paula",
+        time: "59:26",
+        html: `Thank you so much, Louie! See you next week!`
+      },
+      {
+        id: "turn-109",
+        speaker: "Louie",
+        time: "59:28",
+        html: `See you next week! Goodbye!`
+      }
+    ];
+
+    // =========================================================================
+    // 3. STUDENT STRENGTHS (6 NATURAL EXPRESSIONS USED BY PAULA)
+    // =========================================================================
+    const STUDENT_STRENGTHS = [
+      {
+        time: "07:18",
+        phrase: "\"Teacher, why not? Because we are working together...\"",
+        note: "Warm, spontaneous collegial warmth and a natural collaborative spirit connecting study directly to your real-world project."
+      },
+      {
+        time: "10:14",
+        phrase: "\"Oh, so many things! I love dance, for example. I dance flamenco.\"",
+        note: "Confident, vibrant sharing of your artistic passions with natural intonation and effortless personal presence."
+      },
+      {
+        time: "13:13",
+        phrase: "\"Because I am a lawyer... but I am a very weird lawyer.\"",
+        note: "Playful, charming self-awareness and intellectual courage—framing your multidisciplinary perspective with humor."
+      },
+      {
+        time: "23:18",
+        phrase: "\"My father, a rational person, and my grandmother, a spiritual one. So I am both: a lawyer with a spiritual way.\"",
+        note: "Poetic and articulate synthesis of analytical intellect and intuitive spiritual empathy."
+      },
+      {
+        time: "38:08",
+        phrase: "\"In the corporate world, you need to know your audience and speak their language.\"",
+        note: "Sharp corporate pragmatism and empathetic communication strategy for leadership."
+      },
+      {
+        time: "52:39",
+        phrase: "\"Authentic and genuine... no more fear, it's only to talk with others.\"",
+        note: "Inspiring maturity and psychological grounding—moving past performance anxiety into authentic human dialogue."
+      }
+    ];
+
+    // =========================================================================
+    // 4. GENTLE PHRASING POLISHES (6 SUPPORTIVE REFINEMENTS)
+    // =========================================================================
+    const GENTLE_POLISHES = [
+      {
+        time: "06:15",
+        topic: "Present Perfect with 'Just' for Completed Actions",
+        said: "Actually, finish my work.",
+        natural: "I've actually just finished work.",
+        why: "When an activity wrapped up just moments before a conversation, English speakers naturally use the present perfect ('I've just finished') to connect the past action to the present moment."
+      },
+      {
+        time: "07:01",
+        topic: "Natural Preposition & Possessive with 'Friend'",
+        said: "I'm friend of Bernada.",
+        natural: "I'm a friend of Bernarda's (or 'Bernie's friend').",
+        why: "In English, we say 'a friend of [Name]'s' using the double possessive, or simply 'Bernarda's friend', which sounds smooth and idiomatic."
+      },
+      {
+        time: "07:54",
+        topic: "Nationality Adjectives & Professional Collocations",
+        said: "I work with German people in English... or Poland people.",
+        natural: "I work with German colleagues in English... and Polish colleagues.",
+        why: "'Polish' is the natural nationality adjective for people from Poland, and 'colleagues' or 'team members' sounds sleek and professional in a workplace setting."
+      },
+      {
+        time: "11:35",
+        topic: "Collocation for Education & Training",
+        said: "I stay in many courses about that.",
+        natural: "I've taken many courses in that (or 'enrolled in many courses').",
+        why: "In English, we 'take', 'attend', or 'enroll in' courses rather than 'stay in' them."
+      },
+      {
+        time: "25:13",
+        topic: "Architectural Precision & Glazed Spaces",
+        said: "It's like a balcony close, close balcony beside my room.",
+        natural: "It's like an enclosed balcony—a sunroom right beside my bedroom.",
+        why: "The participle 'enclosed' or the noun 'sunroom' captures a glazed, weather-protected balcony converted into a cosy interior workspace."
+      },
+      {
+        time: "32:40",
+        topic: "Past Tense of 'To Be' & Fieldwork Idioms",
+        said: "Armed conflict... but I didn't be there.",
+        natural: "Armed conflict... though I wasn't deployed on the ground myself.",
+        why: "In the past simple of 'to be', English uses 'I wasn't' rather than 'I didn't be', and 'on the ground' is the natural idiom for operational fieldwork."
+      }
+    ];
+
+    // =========================================================================
+    // 5. AUTOMATED NOTE-TAKER SPELLING FIXES (14 ITEMS)
+    // =========================================================================
+    const ASR_FIXES = [
+      {
+        time: "07:05",
+        speaker: "Paula",
+        wrong: "I'm friend of Bernada.",
+        right: "I'm a friend of Bernarda ('Bernie').",
+        note: "The speech-to-text algorithm missed the subtle soft 'r' in Bernarda's Argentine name."
+      },
+      {
+        time: "07:54",
+        speaker: "Paula",
+        wrong: "Or Poland people.",
+        right: "Or Polish colleagues.",
+        note: "Corrected the noun 'Poland' to the natural nationality adjective 'Polish'."
+      },
+      {
+        time: "08:15",
+        speaker: "Paula",
+        wrong: "I work for Boehringer Ingelham.",
+        right: "I work for Boehringer Ingelheim.",
+        note: "The German pharmaceutical company's global headquarters was anglicized phonetically by the note-taker."
+      },
+      {
+        time: "09:18",
+        speaker: "Paula",
+        wrong: "Work, this project that we have with Bernada, that is Mind under. Pressure.",
+        right: "Minds Under Pressure.",
+        note: "The automated transcript placed an accidental full stop right in the middle of your project name."
+      },
+      {
+        time: "11:08",
+        speaker: "Paula",
+        wrong: "Mysterio— mysterious.",
+        right: "mysterious / esoteric.",
+        note: "Speech-to-text captured a micro-hesitation with jagged hyphens."
+      },
+      {
+        time: "20:52",
+        speaker: "Paula",
+        wrong: "the gypsy. People.",
+        right: "Romani fortune tellers.",
+        note: "The note-taker split the phrase across two sentences with an erratic full stop."
+      },
+      {
+        time: "25:13",
+        speaker: "Paula",
+        wrong: "a balcony close, close balcony. But it's, um, behind. My. My behind, no, beside. My, my, my room.",
+        right: "an enclosed balcony (sunroom) beside my bedroom.",
+        note: "Cleaned up the word-retrieval loop where 'close' (cerrado) was repeated into a tidy architectural description."
+      },
+      {
+        time: "25:36",
+        speaker: "Paula",
+        wrong: "castañuelas",
+        right: "castañuelas (castanets)",
+        note: "Added the British English equivalent 'castanets' alongside the authentic Spanish musical instrument."
+      },
+      {
+        time: "26:34",
+        speaker: "Louie",
+        wrong: "Amalgamation. Amal.",
+        right: "amalgamation",
+        note: "The note-taker captured Louie's step-by-step pronunciation breakdown as a fragmented word."
+      },
+      {
+        time: "30:52",
+        speaker: "Paula",
+        wrong: "pen-pendle. Pendulo.",
+        right: "pendant (péndulo)",
+        note: "Tidied up the phonetic transition between the Spanish 'péndulo' and the English 'pendant'."
+      },
+      {
+        time: "32:21",
+        speaker: "Paula",
+        wrong: "Not for disasters, but I prepare I. Prepare me.",
+        right: "preparing myself for disaster relief",
+        note: "Smoothed out staccato note-taker punctuation in rapid speech."
+      },
+      {
+        time: "36:46",
+        speaker: "Paula",
+        wrong: "for the corporative world / corporative war.",
+        right: "for the corporate world.",
+        note: "The note-taker mistakenly turned 'corporative' into 'corporative war' instead of 'corporate world'!"
+      },
+      {
+        time: "40:27",
+        speaker: "Paula",
+        wrong: "make million of life better.",
+        right: "making millions of lives better.",
+        note: "Restored the plural suffixes on 'millions' and 'lives' in Boehringer Ingelheim's mission statement."
+      },
+      {
+        time: "46:04",
+        speaker: "Sarah Paine (Clip)",
+        wrong: "I'm going to talk about war terminating today.",
+        right: "I'm going to talk about war termination today.",
+        note: "The speech engine misheard the academic geopolitical term 'termination' as a participle."
+      }
+    ];
+
+    // =========================================================================
+    // 6. CULTURAL PLACES & TOPICS (4 EDITORIAL DEEP-DIVES)
+    // =========================================================================
+    const CULTURAL_PLACES = [
+      {
+        meta: "08:50 – 09:45 & 33:45 – 36:38",
+        badge: "Social Innovation & Psychology",
+        title: "1. Minds Under Pressure: Resilience for High-Strain Teams",
+        desc: "Co-founded by Paula, Bernarda ('Bernie'), and Eliana, this initiative brings together humanitarian law, psychological sustainability, and operational resilience. Designed to support professionals facing intense urgency—from frontline crisis workers to corporate laboratory teams—it equips people to manage stress and sustain healthy emotional distance without burning out.",
+        quote: "Paula (35:45): \"Because it's not only for emergencies... in the pharmaceutical laboratory, you have teams under pressure all the time. We train people in stress management and emotional distance.\"",
+        tags: ["under-pressure", "resilience", "sustainability", "emotional-distance"]
+      },
+      {
+        meta: "10:21 – 14:19 & 21:59 – 23:22",
+        badge: "Philosophy & Heritage",
+        title: "2. The Synthesis: Legal Logic Meets Intuitive Wisdom",
+        desc: "Paula embodies a unique family synthesis: her father's rigorous legal discipline combined with her grandmother's profound spiritual intuition. Rather than seeing law and symbolism as conflicting, Paula views astrology, tarot, and Carl Jung's 'active imagination' as rich archetype languages that illuminate human motivation and foster genuine empathy.",
+        quote: "Paula (23:18): \"With my father, a rational person, and my grandmother, a spiritual one. So I am both: a lawyer with a spiritual way.\"",
+        tags: ["archetype", "active-imagination", "symbolism", "empathy"]
+      },
+      {
+        meta: "24:20 – 26:41 & 30:48 – 31:48",
+        badge: "Creative Living Sanctuary",
+        title: "3. The Enclosed Balcony, Energy Pendant & Castañuelas",
+        desc: "Adjacent to her bedroom lies Paula's personal sanctuary—an enclosed sunroom filled with lush flowers, a Buddha statue, tarot decks, and flamenco castanets. Louie coined the word 'amalgamation' to describe this harmonious blend of her passions. Around her neck hangs a responsive crystal pendant that turns vibrant blue when her creative energy peaks.",
+        quote: "Louie (26:20): \"We say it's an amalgamation—an amalgamation of you, this space. The things that make up you.\"",
+        tags: ["amalgamation", "enclosed-balcony", "castanets", "pendant"]
+      },
+      {
+        meta: "36:46 – 40:27 & 45:05 – 48:39",
+        badge: "High-Stakes Communication",
+        title: "4. Sarah Paine's Framing Technique & Corporate Communication",
+        desc: "Facing an upcoming 15-minute presentation in English to answer 10 questions for German and Polish colleagues, Paula sought to distill complex ideas into direct, impactful answers. Louie shared US Naval War College Professor Sarah Paine's executive communication technique: outline upfront exactly what your audience will discover, cut to the chase, and eliminate corporate jargon.",
+        quote: "Louie (47:31): \"She outlines what they're about to do: 'This is what we'll get through, and when we are finished, this is what you will know.' It prepares the audience beautifully.\"",
+        tags: ["succinct", "cut-to-the-chase", "simplify", "know-your-audience"]
+      }
+    ];
+
+    // =========================================================================
+    // 7. FLASHCARDS & QUIZ
+    // =========================================================================
+    const FLASHCARD_KEYS = [
+      "amalgamation",
+      "archetype",
+      "active-imagination",
+      "resilience",
+      "internal-investigator",
+      "castanets",
+      "pendant",
+      "conflict-of-interest",
+      "emotional-distance",
+      "succinct",
+      "cut-to-the-chase",
+      "circadian-rhythm"
+    ];
+
+    const QUIZ_QUESTIONS = [
+      {
+        q: "1. Paula's enclosed balcony sunroom contains her Buddha statue, flowers, tarot cards, and castanets. Louie described this harmonious blend as an ________ of her spirit.",
+        options: ["amalgamation", "investigation", "understatement"],
+        correct: 0,
+        explain: "An 'amalgamation' is a rich, harmonious mixture or blend of diverse distinct elements."
+      },
+      {
+        q: "2. When exploring tarot and astrology, Paula uses symbols to understand the universal human ________ of a person.",
+        options: ["conflict of interest", "archetype", "lineage"],
+        correct: 1,
+        explain: "An 'archetype' is a universal, recurring symbolic model or pattern of human nature (Jungian concept)."
+      },
+      {
+        q: "3. For her 15-minute presentation to German and Polish colleagues, Paula wants to ________ complex legal notions into clear, direct answers.",
+        options: ["set aside", "mitigate", "simplify"],
+        correct: 2,
+        explain: "To 'simplify' means to distill complex ideas down into clear, easily understandable language."
+      },
+      {
+        q: "4. At Boehringer Ingelheim, Paula works as an internal ________ in HR, addressing workplace culture and communication.",
+        options: ["investigator", "fortune teller", "onboarding"],
+        correct: 0,
+        explain: "An 'internal investigator' examines workplace grievances, ethics, and interpersonal friction impartially."
+      },
+      {
+        q: "5. When presenting to executive colleagues with limited time, it is vital to ________ and address the core value immediately.",
+        options: ["cut to the chase", "stay in courses", "have a conflict of interest"],
+        correct: 0,
+        explain: "'Cut to the chase' is an idiomatic expression meaning to get straight to the essential point without delay."
+      },
+      {
+        q: "6. Moving from England to Vietnam adjusted Louie's ________, prompting him to rise at 4:30 AM for morning boxing.",
+        options: ["landslide", "circadian rhythm", "humanitarian law"],
+        correct: 1,
+        explain: "A 'circadian rhythm' is the natural internal 24-hour biological cycle that regulates sleep, energy, and alertness."
+      }
+    ];
+
+    // =========================================================================
+    // CORE APPLICATION ENGINE
+    // =========================================================================
+    let currentCardIndex = 0;
+    let isCardFlipped = false;
+    let quizAnswered = new Set();
+    let speechRate = 1.0;
+
+    function initHeaderAndHero() {
+      document.getElementById('page-title').textContent = `${LESSON_CONFIG.studentName}'s Peaceful English Sanctuary | ${LESSON_CONFIG.lessonNumber}`;
+      document.getElementById('brand-initial').textContent = LESSON_CONFIG.studentName.charAt(0).toUpperCase();
+      document.getElementById('brand-title').textContent = `${LESSON_CONFIG.studentName}'s Peaceful English Sanctuary`;
+      document.getElementById('brand-badge').textContent = `${LESSON_CONFIG.lessonNumber} • Conversation & Vocabulary`;
+      document.getElementById('hero-meta-pill').textContent = `${LESSON_CONFIG.lessonDate} • ${LESSON_CONFIG.lessonSubtitle}`;
+      document.getElementById('hero-heading').innerHTML = LESSON_CONFIG.heroHeadingHtml;
+      document.getElementById('hero-intro').textContent = LESSON_CONFIG.heroIntroText;
+      document.getElementById('opt-student-speaker').value = LESSON_CONFIG.studentName;
+      document.getElementById('opt-student-speaker').textContent = `${LESSON_CONFIG.studentName}'s Turns Only`;
+      document.getElementById('stat-vocab-count').textContent = `${Object.keys(VOCAB_DB).length} Flagged`;
+      document.getElementById('stat-fixes-count').textContent = `${ASR_FIXES.length} Fixes`;
+
+      const chapters = TRANSCRIPT_TURNS.filter(t => t.chapterId && t.chapterTitle);
+      document.getElementById('chapter-pills-bar').innerHTML = chapters.map(c => `
+        <button onclick="scrollToChapter('${c.chapterId}')" class="px-2.5 py-1 rounded-lg bg-parchment-100 hover:bg-autumn-100 text-stone-700 text-xs font-medium transition border border-parchment-200">
+          ${c.time} • ${c.chapterTitle.split('•')[1] || c.chapterTitle}
+        </button>
+      `).join('');
+    }
+
+    function renderTranscript() {
+      const container = document.getElementById('transcript-stream-container');
+      const searchVal = (document.getElementById('transcript-search')?.value || '').toLowerCase().trim();
+      const speakerFilter = document.getElementById('speaker-filter')?.value || 'all';
+
+      let html = '';
+      TRANSCRIPT_TURNS.forEach(turn => {
+        if (turn.chapterTitle && speakerFilter === 'all' && !searchVal) {
+          html += `
+            <div id="${turn.chapterId}" class="pt-4 pb-1">
+              <div class="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-sage-100/90 via-parchment-100 to-autumn-50 border border-sage-200 flex items-center gap-2 text-xs sm:text-sm font-serif font-bold text-sage-800 shadow-sm">
+                <span>${turn.chapterTitle}</span>
+              </div>
+            </div>
+          `;
+        }
+        if (speakerFilter !== 'all' && turn.speaker !== speakerFilter) return;
+        const plainText = turn.html.replace(/<[^>]+>/g, '').toLowerCase();
+        if (searchVal && !plainText.includes(searchVal) && !turn.time.includes(searchVal)) return;
+
+        const isStudent = turn.speaker === LESSON_CONFIG.studentName;
+        const isClip = turn.speaker.includes('Clip');
+        const cardStyle = isStudent
+          ? 'bg-[#fffdf9] border-l-4 border-l-autumn-500 border border-[#e6decb]'
+          : isClip
+            ? 'bg-[#f4f7f8] border-l-4 border-l-stone-500 border border-[#d8e0e4]'
+            : 'bg-[#f8faf8] border-l-4 border-l-sage-600 border border-[#d8e4dc]';
+        const badgeStyle = isStudent
+          ? 'bg-autumn-100 text-autumn-800 border-autumn-200'
+          : isClip
+            ? 'bg-stone-100 text-stone-800 border-stone-200'
+            : 'bg-sage-100 text-sage-800 border-sage-200';
+
+        html += `
+          <article id="${turn.id}" class="rounded-2xl p-4 sm:p-5 ${cardStyle} shadow-sm transition-all duration-300 space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold border ${badgeStyle}">
+                  ${isStudent ? '🌸 ' + turn.speaker : isClip ? '🎙️ ' + turn.speaker : '🍂 Louie'}
+                </span>
+                <span class="font-mono text-xs text-stone-500">🕒 ${turn.time}</span>
+              </div>
+              <button onclick="speakPlainTurn('${turn.id}')" class="text-stone-400 hover:text-sage-700 transition p-1 rounded-lg" title="Listen to this turn">
+                <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+            <div class="text-sm sm:text-[15px] text-slatewarm-800 leading-relaxed">${turn.html}</div>
+          </article>
+        `;
+      });
+
+      container.innerHTML = html;
+      lucide.createIcons();
+      initVocabTooltips();
+    }
+
+    function initVocabTooltips() {
+      document.querySelectorAll('.vocab-mark').forEach(el => {
+        const key = el.getAttribute('data-vkey');
+        const item = VOCAB_DB[key];
+        if (!item) return;
+        if (el._tippy) el._tippy.destroy();
+        tippy(el, {
+          theme: 'autumn-sanctuary',
+          allowHTML: true,
+          interactive: true,
+          animation: 'shift-away',
+          maxWidth: 320,
+          content: `
+            <div class="p-2.5 space-y-2 text-left">
+              <div class="flex items-center justify-between gap-2 border-b border-parchment-200 pb-1.5">
+                <div>
+                  <span class="font-serif font-bold text-base text-slatewarm-900">${item.word}</span>
+                  <span class="block font-mono text-[10px] text-stone-500">${item.ipa} • ${item.pos}</span>
+                </div>
+                <div class="flex items-center gap-1">
+                  <span class="px-1.5 py-0.5 rounded bg-autumn-100 text-autumn-800 font-mono text-[10px] font-bold">${item.level}</span>
+                  <span class="px-1.5 py-0.5 rounded bg-sage-100 text-sage-800 font-mono text-[10px]">🕒 ${item.time}</span>
+                </div>
+              </div>
+              <p class="text-xs text-stone-700 leading-snug">${item.def}</p>
+              <div class="flex items-center justify-between pt-1 text-[11px] border-t border-parchment-200">
+                <span class="text-sage-800 font-semibold">${item.l1 || ''}</span>
+                <button onclick="speakWord('${item.word.replace(/'/g, "\\'")}')" class="px-2 py-0.5 rounded bg-sage-700 text-white text-[10px] font-semibold">🔊 Listen</button>
+              </div>
+            </div>
+          `
+        });
+      });
+    }
+
+    function inspectVocab(key) {
+      const item = VOCAB_DB[key];
+      if (!item) return;
+      document.getElementById('insp-time').textContent = `🕒 ${item.time}`;
+      document.getElementById('insp-word').textContent = item.word;
+      document.getElementById('insp-ipa').textContent = item.ipa;
+      document.getElementById('insp-pos').textContent = item.pos;
+      document.getElementById('insp-level').textContent = item.level;
+      document.getElementById('insp-def').textContent = item.def;
+      document.getElementById('insp-quote').textContent = item.quote;
+      document.getElementById('insp-l1-label').textContent = LESSON_CONFIG.l1FlagAndLabel;
+      document.getElementById('insp-l1').textContent = item.l1 || '';
+      document.getElementById('insp-audio-btn').setAttribute('onclick', `speakWord('${item.word.replace(/\s*\(.*?\)/g, '').replace(/'/g, "\\'")}')`);
+    }
+
+    function renderVocabGrid() {
+      const grid = document.getElementById('vocab-cards-grid');
+      const search = (document.getElementById('vocab-search')?.value || '').toLowerCase().trim();
+      const levelFilter = document.getElementById('vocab-level-filter')?.value || 'all';
+
+      const entries = Object.entries(VOCAB_DB).filter(([key, item]) => {
+        if (levelFilter !== 'all' && item.level !== levelFilter) return false;
+        if (search) {
+          const hay = `${item.word} ${item.def} ${item.l1 || ''} ${item.time}`.toLowerCase();
+          if (!hay.includes(search)) return false;
+        }
+        return true;
+      });
+
+      grid.innerHTML = entries.map(([key, item]) => `
+        <div class="sanctuary-subcard rounded-2xl p-5 flex flex-col justify-between space-y-3 hover:border-autumn-400">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <div class="flex items-center gap-1.5">
+                <span class="px-2 py-0.5 rounded-md bg-autumn-100 text-autumn-800 font-mono text-[11px] font-bold">${item.level}</span>
+                <span class="px-2 py-0.5 rounded-md bg-parchment-100 text-stone-600 text-[11px]">${item.pos}</span>
+              </div>
+              <button onclick="jumpToTranscriptTurn('${item.turnId}', '${key}')" class="px-2.5 py-0.5 rounded-full bg-sage-100 hover:bg-sage-200 text-sage-800 font-mono text-[11px] font-semibold transition" title="Jump to transcript line">
+                🕒 ${item.time} ↗
+              </button>
+            </div>
+            <div class="flex items-center justify-between gap-2 pt-1">
+              <div>
+                <h3 class="font-serif text-xl font-bold text-slatewarm-900">${item.word}</h3>
+                <span class="text-xs font-mono text-stone-500">${item.ipa}</span>
+              </div>
+              <button onclick="speakWord('${item.word.replace(/\s*\(.*?\)/g, '').replace(/'/g, "\\'")}')" class="p-2 rounded-xl bg-parchment-100 hover:bg-sage-100 text-sage-800 transition" title="Listen in British English">
+                <i data-lucide="volume-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">${item.def}</p>
+            <p class="text-xs italic text-stone-500 bg-parchment-50 p-2.5 rounded-xl border border-parchment-200">${item.quote}</p>
+          </div>
+          <div class="pt-2 border-t border-parchment-200 flex items-center justify-between text-xs">
+            <span class="text-sage-800 font-medium">${item.l1 || ''}</span>
+            <button onclick="jumpToTranscriptTurn('${item.turnId}', '${key}')" class="text-autumn-700 hover:underline font-semibold text-[11px]">See in Transcript →</button>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function jumpToTranscriptTurn(turnId, vocabKey) {
+      switchTab('transcript');
+      setTimeout(() => {
+        if (vocabKey) inspectVocab(vocabKey);
+        const el = document.getElementById(turnId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.classList.remove('turn-highlight-flash');
+          void el.offsetWidth;
+          el.classList.add('turn-highlight-flash');
+        }
+      }, 100);
+    }
+
+    function renderFixesAndPlaces() {
+      document.getElementById('student-strengths-grid').innerHTML = STUDENT_STRENGTHS.map(s => `
+        <div class="p-3.5 rounded-xl bg-white/90 border border-sage-200 space-y-1">
+          <span class="font-mono text-[11px] font-semibold text-sage-700">🕒 ${s.time}</span>
+          <div class="font-bold text-slatewarm-900 text-xs sm:text-sm">${s.phrase}</div>
+          <p class="text-stone-600 text-xs">${s.note}</p>
+        </div>
+      `).join('');
+
+      document.getElementById('gentle-polishes-grid').innerHTML = GENTLE_POLISHES.map(p => `
+        <div class="sanctuary-subcard rounded-2xl p-5 space-y-2.5 border-l-4 border-l-sage-500">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold text-sage-800">${p.topic}</span>
+            <span class="px-2 py-0.5 rounded-full bg-parchment-100 font-mono text-[11px] text-stone-600">🕒 ${p.time}</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-autumn-50/70 border border-autumn-200/80 text-xs text-stone-600">
+            <span class="font-semibold text-autumn-800">In the moment:</span> "${p.said}"
+          </div>
+          <div class="p-2.5 rounded-xl bg-sage-50 border border-sage-200 text-xs text-slatewarm-900 flex items-center justify-between gap-2">
+            <div><span class="font-semibold text-sage-800">Natural Polish:</span> <strong>"${p.natural}"</strong></div>
+            <button onclick="speakWord('${p.natural.replace(/'/g, "\\'")}')" class="p-1.5 rounded-lg bg-white text-sage-700 hover:bg-sage-100 transition shadow-xs" title="Listen">🔊</button>
+          </div>
+          <p class="text-xs text-stone-600 leading-relaxed">${p.why}</p>
+        </div>
+      `).join('');
+
+      document.getElementById('asr-fixes-grid').innerHTML = ASR_FIXES.map(f => `
+        <div class="sanctuary-subcard rounded-2xl p-4 space-y-2 border-t-2 border-t-autumn-400">
+          <div class="flex items-center justify-between text-[11px] font-mono text-stone-500">
+            <span>${f.speaker}</span><span>🕒 ${f.time}</span>
+          </div>
+          <div class="text-xs line-through text-stone-400">Note-taker wrote: "${f.wrong}"</div>
+          <div class="text-sm font-serif font-bold text-sage-800">Actually said: "${f.right}"</div>
+          <p class="text-xs text-stone-600 leading-relaxed">${f.note}</p>
+        </div>
+      `).join('');
+
+      document.getElementById('cultural-places-grid').innerHTML = CULTURAL_PLACES.map(c => `
+        <div class="sanctuary-subcard rounded-2xl p-6 space-y-3.5 border-l-4 border-l-autumn-500">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono text-autumn-700 font-semibold">${c.meta}</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-autumn-100 text-autumn-800 text-[11px] font-medium">${c.badge}</span>
+          </div>
+          <h3 class="font-serif text-2xl font-bold text-slatewarm-900">${c.title}</h3>
+          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">${c.desc}</p>
+          <div class="p-3.5 rounded-xl bg-parchment-50 border border-parchment-200 text-xs italic text-stone-700 leading-relaxed">${c.quote}</div>
+          <div class="flex flex-wrap gap-1.5 pt-1">
+            ${c.tags.map(t => `<span class="px-2 py-0.5 rounded-md bg-sage-100 text-sage-800 font-mono text-[10px] font-medium">#${t}</span>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderFlashcard() {
+      const key = FLASHCARD_KEYS[currentCardIndex];
+      const item = VOCAB_DB[key];
+      if (!item) return;
+      document.getElementById('fc-counter').textContent = `Card ${currentCardIndex + 1} of ${FLASHCARD_KEYS.length}`;
+      document.getElementById('fc-badge').textContent = `${item.time} • ${item.pos} (${item.level})`;
+      document.getElementById('fc-front-title').textContent = item.word;
+      const subEl = document.getElementById('fc-sub');
+      const backEl = document.getElementById('fc-back-details');
+      if (!isCardFlipped) {
+        subEl.textContent = `${item.ipa} — Click card to reveal meaning & lesson context`;
+        backEl.classList.add('hidden');
+      } else {
+        subEl.textContent = item.def;
+        document.getElementById('fc-quote').textContent = item.quote;
+        document.getElementById('fc-l1').textContent = item.l1 || '';
+        backEl.classList.remove('hidden');
+      }
+    }
+    function flipFlashcard() { isCardFlipped = !isCardFlipped; renderFlashcard(); }
+    function nextFlashcard() { isCardFlipped = false; currentCardIndex = (currentCardIndex + 1) % FLASHCARD_KEYS.length; renderFlashcard(); }
+    function prevFlashcard() { isCardFlipped = false; currentCardIndex = (currentCardIndex - 1 + FLASHCARD_KEYS.length) % FLASHCARD_KEYS.length; renderFlashcard(); }
+    function speakCurrentFlashcard() { const item = VOCAB_DB[FLASHCARD_KEYS[currentCardIndex]]; if (item) speakWord(item.word); }
+
+    function renderQuiz() {
+      document.getElementById('quiz-container').innerHTML = QUIZ_QUESTIONS.map((q, qIdx) => `
+        <div class="sanctuary-subcard rounded-2xl p-4 space-y-2.5">
+          <p class="text-xs sm:text-sm font-medium text-slatewarm-900">${q.q}</p>
+          <div class="flex flex-wrap gap-2">
+            ${q.options.map((opt, oIdx) => `
+              <button id="qbtn-${qIdx}-${oIdx}" onclick="answerQuiz(${qIdx}, ${oIdx})" class="px-3 py-1.5 rounded-xl border border-[#dfd0b5] bg-parchment-50 hover:bg-autumn-100 text-xs font-medium text-stone-700 transition">${opt}</button>
+            `).join('')}
+          </div>
+          <p id="qexp-${qIdx}" class="hidden text-xs text-sage-800 bg-sage-50 p-2.5 rounded-xl border border-sage-200 leading-relaxed"></p>
+        </div>
+      `).join('');
+    }
+
+    function answerQuiz(qIdx, oIdx) {
+      const q = QUIZ_QUESTIONS[qIdx];
+      const expEl = document.getElementById(`qexp-${qIdx}`);
+      q.options.forEach((_, idx) => {
+        const btn = document.getElementById(`qbtn-${qIdx}-${idx}`);
+        if (idx === q.correct) btn.className = 'px-3 py-1.5 rounded-xl border border-sage-500 bg-sage-600 text-white text-xs font-semibold';
+        else if (idx === oIdx) btn.className = 'px-3 py-1.5 rounded-xl border border-autumn-300 bg-autumn-100 text-autumn-900 text-xs';
+      });
+      expEl.textContent = `✨ ${q.explain}`;
+      expEl.classList.remove('hidden');
+      if (oIdx === q.correct && !quizAnswered.has(qIdx)) {
+        quizAnswered.add(qIdx);
+        document.getElementById('quiz-score-badge').textContent = `${quizAnswered.size} / ${QUIZ_QUESTIONS.length} Completed`;
+        if (quizAnswered.size === QUIZ_QUESTIONS.length && typeof confetti === 'function') {
+          confetti({ particleCount: 55, spread: 60, origin: { y: 0.7 } });
+        }
+      }
+    }
+
+    function switchTab(tabName) {
+      ['transcript', 'vocab', 'fixes', 'places', 'practice'].forEach(t => {
+        const panel = document.getElementById(`tab-panel-${t}`);
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (t === tabName) {
+          panel.classList.remove('hidden');
+          btn.className = 'tab-btn flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 bg-sage-700 text-white shadow-sm';
+        } else {
+          panel.classList.add('hidden');
+          btn.className = 'tab-btn flex-1 sm:flex-initial px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center justify-center gap-2 text-stone-700 hover:bg-parchment-100';
+        }
+      });
+    }
+
+    function filterTranscript() { renderTranscript(); }
+    function scrollToChapter(chapId) {
+      document.getElementById('speaker-filter').value = 'all';
+      document.getElementById('transcript-search').value = '';
+      renderTranscript();
+      const el = document.getElementById(chapId);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    let highlightsOn = true;
+    function toggleVocabHighlights() {
+      highlightsOn = !highlightsOn;
+      document.body.classList.toggle('hide-vocab-highlights', !highlightsOn);
+      document.getElementById('btn-toggle-highlights').querySelector('span').textContent = `Vocab Highlights: ${highlightsOn ? 'On' : 'Off'}`;
+    }
+
+    let asrBadgesOn = true;
+    function toggleAsrBadges() {
+      asrBadgesOn = !asrBadgesOn;
+      document.body.classList.toggle('hide-asr-fixes', !asrBadgesOn);
+      document.getElementById('btn-toggle-asr').querySelector('span').textContent = `Note-Taker Fixes: ${asrBadgesOn ? 'Visible' : 'Hidden'}`;
+    }
+
+    function setThemeMood(mood) { document.body.setAttribute('data-theme', mood); }
+    function setVoiceRate(rate) { speechRate = rate; }
+
+    function speakWord(text) {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'en-GB';
+      utter.rate = speechRate;
+      window.speechSynthesis.speak(utter);
+    }
+
+    function speakPlainTurn(turnId) {
+      const turn = TRANSCRIPT_TURNS.find(t => t.id === turnId);
+      if (!turn) return;
+      const temp = document.createElement('div');
+      temp.innerHTML = turn.html;
+      temp.querySelectorAll('.asr-fix-pill').forEach(el => el.remove());
+      speakWord(temp.textContent || '');
+    }
+
+    // Web Audio API Soundscape Engine
+    let audioCtx = null, soundscapePlaying = false, masterGain = null, lfoTimer = null, currentFilter = null;
+    function buildNoiseBuffer(ctx) {
+      const bufferSize = ctx.sampleRate * 4;
+      const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      const output = buffer.getChannelData(0);
+      let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+      for (let i = 0; i < bufferSize; i++) {
+        const white = Math.random() * 2 - 1;
+        b0 = 0.99886 * b0 + white * 0.0555179;
+        b1 = 0.99332 * b1 + white * 0.0750759;
+        b2 = 0.96900 * b2 + white * 0.1538520;
+        b3 = 0.86650 * b3 + white * 0.3104856;
+        b4 = 0.55000 * b4 + white * 0.5329522;
+        b5 = -0.7616 * b5 - white * 0.0168980;
+        output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.04;
+        b6 = white * 0.115926;
+      }
+      return buffer;
+    }
+
+    function toggleSoundscape() {
+      const label = document.getElementById('soundscape-label');
+      if (!soundscapePlaying) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!audioCtx) audioCtx = new AudioContext();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const noiseSource = audioCtx.createBufferSource();
+        noiseSource.buffer = buildNoiseBuffer(audioCtx);
+        noiseSource.loop = true;
+        currentFilter = audioCtx.createBiquadFilter();
+        masterGain = audioCtx.createGain();
+        masterGain.gain.value = parseFloat(document.getElementById('soundscape-volume').value || '0.22');
+        noiseSource.connect(currentFilter);
+        currentFilter.connect(masterGain);
+        masterGain.connect(audioCtx.destination);
+        noiseSource.start();
+        audioCtx._activeSource = noiseSource;
+        soundscapePlaying = true;
+        changeSoundscapePreset(document.getElementById('soundscape-preset').value);
+        label.textContent = 'Breeze Audio: Playing';
+      } else {
+        if (lfoTimer) clearInterval(lfoTimer);
+        if (audioCtx && audioCtx._activeSource) { try { audioCtx._activeSource.stop(); } catch (e) {} }
+        soundscapePlaying = false;
+        label.textContent = 'Breeze Audio: Off';
+      }
+    }
+
+    function changeSoundscapePreset(preset) {
+      if (!currentFilter || !audioCtx) return;
+      if (lfoTimer) clearInterval(lfoTimer);
+      if (preset === 'breeze') {
+        currentFilter.type = 'bandpass';
+        currentFilter.frequency.value = 340;
+      } else if (preset === 'rain') {
+        currentFilter.type = 'lowpass';
+        currentFilter.frequency.value = 880;
+      } else {
+        currentFilter.type = 'lowpass';
+        currentFilter.frequency.value = 240;
+      }
+    }
+    function updateSoundscapeVolume(val) { if (masterGain && audioCtx) masterGain.gain.value = parseFloat(val); }
+
+    // Canvas Autumn Leaves Engine
+    const canvas = document.getElementById('autumn-breeze-canvas');
+    const ctx = canvas.getContext('2d');
+    let leaves = [], leafMode = 1, breezeTime = 0;
+    const LEAF_COLORS = ['rgba(190,111,56,0.42)', 'rgba(211,140,87,0.40)', 'rgba(165,191,177,0.42)', 'rgba(203,179,142,0.45)'];
+    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    function rebuildLeaves() {
+      const count = leafMode === 1 ? 16 : leafMode === 2 ? 32 : 0;
+      leaves = Array.from({ length: count }, () => ({
+        x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+        size: 6 + Math.random() * 8, speedY: 0.35 + Math.random() * 0.55, speedX: 0.25 + Math.random() * 0.45,
+        angle: Math.random() * Math.PI * 2, spin: (Math.random() - 0.5) * 0.014, swayOffset: Math.random() * 100,
+        color: LEAF_COLORS[Math.floor(Math.random() * LEAF_COLORS.length)]
+      }));
+    }
+    function cycleLeafBreeze() {
+      leafMode = (leafMode + 1) % 3;
+      document.getElementById('leaves-label').textContent = leafMode === 1 ? 'Leaves: Gentle' : leafMode === 2 ? 'Leaves: Breeze' : 'Leaves: Still';
+      rebuildLeaves();
+    }
+    function animateLeaves() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (leafMode !== 0) {
+        breezeTime += 0.01;
+        leaves.forEach(l => {
+          l.y += l.speedY; l.x += l.speedX + Math.sin(breezeTime + l.swayOffset) * 0.45; l.angle += l.spin;
+          if (l.y > canvas.height + 20) { l.y = -20; l.x = Math.random() * canvas.width; }
+          if (l.x > canvas.width + 20) l.x = -20;
+          ctx.save(); ctx.translate(l.x, l.y); ctx.rotate(l.angle); ctx.fillStyle = l.color;
+          ctx.beginPath(); ctx.ellipse(0, 0, l.size, l.size * 0.52, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+        });
+      }
+      requestAnimationFrame(animateLeaves);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initHeaderAndHero();
+      renderTranscript();
+      renderVocabGrid();
+      renderFixesAndPlaces();
+      renderFlashcard();
+      renderQuiz();
+      if (LESSON_CONFIG.defaultSpotlightKey) inspectVocab(LESSON_CONFIG.defaultSpotlightKey);
+      rebuildLeaves();
+      animateLeaves();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
